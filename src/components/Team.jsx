@@ -1,18 +1,13 @@
 'use client'
 import {motion} from 'motion/react'
+import AnimatedHeading from "@/components/shared/AnimatedHeading";
 
 const Team = ()=>{
 
     return (
         <div>
             {/*heading*/}
-            <div className={"flex flex-col items-center"}>
-                <p className={"green-polygon flex items-center gap-2 font-[600]"}>Our Team</p>
-                <motion.p className={"text-[40px] font-[600] text-center "}>
-                    We bring a wealth of skills from a wide
-                    range of backgrounds
-                </motion.p>
-            </div>
+            <AnimatedHeading title={"We bring a wealth of skills from a wide"} subTitle={"range of backgrounds"}/>
 
 
         </div>
