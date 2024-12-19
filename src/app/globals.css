@@ -13,11 +13,19 @@ body {
 }
 
 .green-polygon{
-
   position: relative;
 }
 .green-polygon:before{
   background-color: #2DF494;
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  animation: flickerAnimation 0.75s infinite;
+}
+.blue-polygon:before{
+  background-color: #0C5AF5;
   content: "";
   display: inline-block;
   width: 10px;
