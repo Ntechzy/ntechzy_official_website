@@ -1,0 +1,33 @@
+[
+    {
+      "title": "IT Consultations",
+      "description": "Rely on our expert team to address operational challenges and deploy new applications seamlessly.",
+      "icon": "https://demo.7iquid.com/tecko/wp-content/uploads/2024/08/svgviewer-png-output.png",
+      "common_ico": "path/to/common.ico"
+    },
+    {
+      "title": "Blockchain",
+      "description": "Rely on our expert team to address operational challenges and deploy new applications seamlessly.",
+      "icon": "path/to/blockchain-icon.png",
+      "common_ico": "path/to/common.ico"
+    },
+    {
+      "title": "Security",
+      "description": "Rely on our expert team to address operational challenges and deploy new applications seamlessly.",
+      "icon": "path/to/security-icon.png",
+      "common_ico": "path/to/common.ico"
+    },
+    {
+      "title": "AI Chatbot",
+      "description": "Rely on our expert team to address operational challenges and deploy new applications seamlessly.",
+      "icon": "path/to/ai-chatbot-icon.png",
+      "common_ico": "path/to/common.ico"
+    },
+    {
+      "title": "Virtual Reality",
+      "description": "Rely on our expert team to address operational challenges and deploy new applications seamlessly.",
+      "icon": "path/to/virtual-reality-icon.png",
+      "common_ico": "path/to/common.ico"
+    }
+  ]
+  

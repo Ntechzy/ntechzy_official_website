@@ -45,3 +45,33 @@ body {
     opacity: 1;
   }
 }
+/* Custom Gradient Borders */
+.service-card-wraper{
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+@layer components {
+  .service-card {
+    position: relative;
+    border-width: 6px;
+    border-style: solid;
+    
+    /* Define the gradient border image */
+    border-image: linear-gradient(
+      to right,
+      rgba(123, 139, 153, 0.001),
+      rgba(123, 139, 153, 1)
+    ) 1;
+    
+    /* Set custom border widths */
+    border-top: 1px solid;
+    border-bottom: 10px solid;
+    border-left: 0px solid transparent;
+    border-right: 10px solid;
+    
+    /* Apply rounded corners to the container */
+    border-radius: 15px;  /* You can adjust the value as needed */
+  }
+}
+
