@@ -14,7 +14,7 @@ const TeamCard = ()=>{
                 transform: 'translateY(-4rem)',
             }}
             className={"relative group  rounded-2xl ease-in-out transition-all duration-2000 flex flex-col justify-between items-center p-10 bg-[#16171B]  h-[340px]"}>
-            <div className={"absolute  w-[95%] h-[95%] top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] group-hover:w-full group-hover:h-full transition-all duration-300 rounded-2xl  border border-secondary invisible group-hover:visible pointer-events-none"}></div>
+            <div className={"absolute  w-[95%] h-[95%] top-[50%] translate-y-[-50%] left-[50%] opacity-0 translate-x-[-50%] group-hover:w-full group-hover:h-full group-hover:opacity-100 transition-all duration-300 rounded-2xl  border border-secondary invisible group-hover:visible pointer-events-none"}></div>
             <div className={"flex flex-col items-center gap-3"}>
                 {/*profile*/}
                 <div className={"w-20 h-20 bg-gray-200 rounded-full"}></div>
