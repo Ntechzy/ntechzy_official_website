@@ -1,13 +1,13 @@
 'use client'
-import {motion} from 'motion/react'
 import AnimatedHeading from "@/components/shared/AnimatedHeading";
-import {FaLinkedin, FaLinkedinIn, FaXTwitter} from "react-icons/fa6";
+import { motion } from 'motion/react';
+import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
-const TeamCard = ()=>{
+const TeamCard = () => {
 
     return (
         <motion.div
-            initial={{display:"hidden" , opacity:0 , transform:"translateY(4rem)" , transition:"all 1s"}}
+            initial={{ display: "hidden", opacity: 0, transform: "translateY(4rem)", transition: "all 1s" }}
             whileInView={{
                 opacity: 1,
                 transition: 'all 1s',
@@ -26,10 +26,10 @@ const TeamCard = ()=>{
             </div>
             <div className={"flex gap-4"}>
                 <div className={"rounded-full p-2 bg-black text-[#7e8695] cursor-pointer border border-[#474E5C hover:bg-secondary hover:text-white transition-all duration-300"}>
-                    <FaLinkedinIn className={"  size-5 "}/>
+                    <FaLinkedinIn className={"  size-5 "} />
                 </div>
                 <div className={"rounded-full p-2 bg-black text-[#7e8695] cursor-pointer border border-[#474E5C hover:bg-secondary hover:text-white transition-all duration-300"}>
-                    <FaXTwitter className={"  size-5 "}/>
+                    <FaXTwitter className={"  size-5 "} />
                 </div>
             </div>
         </motion.div>
@@ -39,19 +39,19 @@ const TeamCard = ()=>{
 const Team = () => {
 
     return (
-        <div className={"flex flex-col gap-16 p-1"}>
+        <div className={"flex flex-col gap-16 p-1 mt-[160px]"}>
             {/*heading*/}
             <AnimatedHeading topBarTitle={"Our Team"} title={"We bring a wealth of skills from a wide"}
-                             subTitle={"range of backgrounds"}/>
+                subTitle={"range of backgrounds"} />
             {/*cards*/}
             <div className={"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-y-14 gap-x-14  items-stretch p-5"}>
-                <TeamCard/>
-                <TeamCard/>
-                <TeamCard/>
-                <TeamCard/>
-                <TeamCard/>
-                <TeamCard/>
-                <TeamCard/>
+                <TeamCard />
+                <TeamCard />
+                <TeamCard />
+                <TeamCard />
+                <TeamCard />
+                <TeamCard />
+                <TeamCard />
             </div>
 
         </div>

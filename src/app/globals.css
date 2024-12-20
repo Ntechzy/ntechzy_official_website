@@ -12,10 +12,19 @@ body {
   justify-content: center;
 }
 
-.green-polygon .yellow-polygon{
+.scroll-container {
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
-.green-polygon:before{
+
+.green-polygon .yellow-polygon {
+  position: relative;
+}
+
+.green-polygon:before {
   background-color: #2DF494;
   content: "";
   display: inline-block;
@@ -24,7 +33,8 @@ body {
   clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   animation: flickerAnimation 0.75s infinite;
 }
-.yellow-polygon:before{
+
+.yellow-polygon:before {
   background-color: #F4752D;
   content: "";
   display: inline-block;
@@ -34,7 +44,7 @@ body {
   animation: flickerAnimation 0.75s infinite;
 }
 
-.blue-polygon:before{
+.blue-polygon:before {
   background-color: #0C5AF5;
   content: "";
   display: inline-block;
@@ -45,43 +55,46 @@ body {
 }
 
 @keyframes flickerAnimation {
-  0%{
+  0% {
     opacity: 1;
   }
-  50%{
+
+  50% {
     opacity: 0;
   }
-  100%{
+
+  100% {
     opacity: 1;
   }
 }
-/* Custom Gradient Borders */
-.service-card-wraper{
-  overflow: hidden;
-  border-radius: 10px;
+
+.half-border {
+  position: relative;
+  border-right: 2px solid #3a3b3e;
 }
 
-@layer components {
-  .service-card {
-    position: relative;
-    border-width: 6px;
-    border-style: solid;
-    
-    /* Define the gradient border image */
-    border-image: linear-gradient(
-      to right,
-      rgba(123, 139, 153, 0.001),
-      rgba(123, 139, 153, 1)
-    ) 1;
-    
-    /* Set custom border widths */
-    border-top: 1px solid;
-    border-bottom: 10px solid;
-    border-left: 0px solid transparent;
-    border-right: 10px solid;
-    
-    /* Apply rounded corners to the container */
-    border-radius: 15px;  /* You can adjust the value as needed */
-  }
+.half-border::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right,
+      #3a3b3e00 0%,
+      #3a3b3e0a 35%,
+      #3a3b3e 100%);
 }
 
+.half-border::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right,
+      #3a3b3e00 0%,
+      #3a3b3e0a 15%,
+      #3a3b3e 100%);
+}

@@ -1,7 +1,9 @@
 'use client'
 import { motion } from 'framer-motion';
-import AnimatedStretchedHeading from './shared/AnimatedStretchedHeading';
 import { LuSparkle } from "react-icons/lu";
+import MergingEdges from './MergingEdges';
+import AnimatedStretchedHeading from './shared/AnimatedStretchedHeading';
+import DirectionAwareButton from './shared/Button';
 
 const ChooseUs = () => {
     const listContainer = {
@@ -22,6 +24,7 @@ const ChooseUs = () => {
     return (
         <div className='bg-white text-black mt-[160px] h-full rounded-[24px] p-[48px] flex justify-between m-auto'>
             <div className='w-[50%] '>
+                <MergingEdges />
             </div>
             <div className='w-[50%] leading-tight'>
                 <h1 className='font-[600] text-[48px] pr-[57px] pb-3'>
@@ -40,7 +43,7 @@ const ChooseUs = () => {
                     whileInView="visible"
                 >
                     <motion.li variants={listItem} className='flex items-center gap-2'>
-                        <LuSparkle className="h-5 w-5 text-blue-500"  />
+                        <LuSparkle className="h-5 w-5 text-blue-500" />
                         <span>
                             Latest IT Solutions & Integration With Blockchain
                         </span>
@@ -64,6 +67,7 @@ const ChooseUs = () => {
                         </span>
                     </motion.li>
                 </motion.ul>
+                <DirectionAwareButton />
             </div>
         </div>
     );

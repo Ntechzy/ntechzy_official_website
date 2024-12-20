@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono,Red_Hat_Display } from "next/font/google";
+import { Geist, Geist_Mono, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${redHatDisplay.className}  antialiased`}
       >
+
         {children}
+
       </body>
     </html>
   );

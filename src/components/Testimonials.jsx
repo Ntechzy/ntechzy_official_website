@@ -6,10 +6,10 @@ const Testimonials = () => {
 
     return (
         <div>
-            <div className={"bg-white rounded-lg text-black p-10 h-[637px]"}>
+            <div className={"bg-white rounded-lg text-black p-10 h-[637px] mt-[160px]"}>
                 {/*left*/}
                 <div className={"flex flex-col h-full justify-between"}>
-                    <AnimatedStretchedHeading topBarTitle={"Testimonial"} titles={["Let actions" , "talking instead"]}  />
+                    <AnimatedStretchedHeading topBarTitle={"Testimonial"} titles={["Let actions", "talking instead"]} />
                     <div className={"p-5 border border-[#BBC1CE] rounded-2xl flex gap-2 w-fit"}>
                         {/*image*/}
                         <div className={"w-10 h-10 rounded-full bg-gray-200"}>
