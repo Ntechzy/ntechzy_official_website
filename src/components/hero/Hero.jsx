@@ -1,9 +1,7 @@
 'use client'
-
-// import { Button } from "@/components/ui/button"
+ 
 import Link from "next/link"
-import Navbar from "../navbar/Navbar"
-// import { Sparkles } from 'lucide-react'
+import Navbar from "../navbar/Navbar" 
 import { IoSparklesSharp } from "react-icons/io5";
 
 export default function HeroSection() {

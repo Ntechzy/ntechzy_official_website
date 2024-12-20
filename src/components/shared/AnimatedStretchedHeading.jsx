@@ -2,11 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const AnimatedStretchedHeading = ({ titles = [], topBarTitle }) => {
+const AnimatedStretchedHeading = ({ titles = [], topBarTitle, cls = "blue-polygon " }) => {
     return (
         <div className={"flex flex-col items-start gap-10 md:gap-2"}>
             {/* Top bar title */}
-            <p className={"blue-polygon flex items-center gap-2 font-[600] text-xs md:text-base"}>
+            <p className={`${cls} flex items-center gap-2 font-[600] text-xs md:text-base ml-2 md:ml-4`}>
                 {topBarTitle}
             </p>
 
@@ -27,7 +27,7 @@ const AnimatedStretchedHeading = ({ titles = [], topBarTitle }) => {
                                         }}
                                         transition={{
                                             initial: { transform: "translateX(50)", opacity: 0 },
-                                            animate: { transform: "translateX(0)", opacity: 0,duration:1 },
+                                            animate: { transform: "translateX(0)", opacity: 0, duration: 1 },
                                             delay: letterIndex * .02,
                                             ease: "easeInOut",
                                         }}
@@ -35,8 +35,8 @@ const AnimatedStretchedHeading = ({ titles = [], topBarTitle }) => {
                                         {letter}
                                     </motion.div>
                                 ))}
-                                {"  "} {/* Add a space between words */}
-                             </span>
+                                {" "} 
+                            </span>
                         ))}
                     </div>
                 ))}
