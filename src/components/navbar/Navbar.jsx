@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="w-full h-[8ch] flex items-center gap-x-36  md:flex-row z-50 shadow">
+        <nav className="w-full flex items-center gap-x-36  md:flex-row z-50 shadow">
             {/* Logo Section */}
             <Link href="/" className="text-2xl text-zinc-200 font-bold mr-16 flex items-center">
                 <img

@@ -3,45 +3,83 @@
 import Link from "next/link"
 import Navbar from "../navbar/Navbar" 
 import { IoSparklesSharp } from "react-icons/io5";
+import { motion } from "framer-motion";
+import { TextFade } from "@/animations/TextFade";
+import Counter from "@/animations/Counter";
+import Slider from "./Slider";
 
 export default function HeroSection() {
+
     return (
-        <div className="h-auto w-full flex flex-col gap-6 bg-primary rounded-3xl my-12 p-10">
+        <div className="h-auto w-full flex flex-col gap-8 bg-primary rounded-3xl my-12 p-10">
             <Navbar />
             <div className="w-full bg-black text-white rounded-3xl p-6">
                 {/* First Hero Section */}
                 <section className="relative h-auto w-full overflow-hidden px-4 py-12 md:px-6 lg:px-8">
                     <div className="mx-auto max-w-7xl">
                         <div className="relative z-10 flex flex-col items-start gap-8">
-                            <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-                                We foster rapid expansion through digital innovation
-                            </h1>
-                            <p className="max-w-2xl text-lg text-gray-400">
-                                We revolutionize industries with dynamic digital solutions, tailored to meet contemporary demands and drive impactful transformations for businesses of all sectors.
-                            </p>
-                            <div className="flex items-center gap-6">
+                            <div>
+                                {"We foster rapid expansion through digital innovation".split(" ").map((el, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        transition={{
+                                            duration: 0.25,
+                                            delay: i / 10,
+                                        }}
+                                        className="max-w-4xl text-4xl font-bold tracking-tight sm:text-6xl md:text-8xl"
+                                    >
+                                        {el}{" "}
+                                    </motion.span>
+                                ))}
+                            </div>
+                            <TextFade
+                                direction="up"
+                                className="pt-0 pb-5 flex-col flex justify-center space-y-0"
+                            >
+                                <p className="max-w-2xl text-lg text-gray-400">
+                                    We revolutionize industries with dynamic digital solutions,
+                                </p>
+                                <p className="max-w-2xl text-lg text-gray-400">
+                                    tailored to meet contemporary demands and drive
+                                </p>
+                                <p className="max-w-2xl text-lg text-gray-400">
+                                    impactful transformations for businesses of all sectors.
+                                </p>
+                            </TextFade>
 
-                                <Link href={'#'} className="w-fit px-8 py-2 rounded-lg bg-white hover:bg-secondary flex items-center gap-x-2 justify-center text-primary hover:text-white">
-                                    Get Started
-                                </Link>
-                                <div className="flex items-center gap-2">
-                                    <IoSparklesSharp className="h-5 w-5 text-blue-500" />
-                                    <span className="text-sm">12 business reaching today</span>
+                            <div className="flex w-full items-center justify-between ">
+                                <div className="flex items-center gap-6">
+                                    <Link href={'#'} className="w-fit px-8 py-2 rounded-lg bg-white hover:bg-secondary flex items-center gap-x-2 justify-center text-primary hover:text-white">
+                                        Get Started
+                                    </Link>
+                                    <div className="flex items-center gap-2">
+                                        <IoSparklesSharp className="h-5 w-5 text-blue-500" />
+                                        <span className="text-sm font-bold ">12 business reaching today</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <img src="/hexagon.png" alt="" className="w-full h-full object-cover" />
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </section>
 
             </div >
 
             {/* Second Hero Section */}
-            <section className="w-full rounded-3xl" >
-                <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-2 md:px-6 lg:px-8">
+            <section className="h-auto w-full rounded-3xl" >
+                <div className="mx-auto grid w-full gap-8 md:grid-cols-2">
                     {/* Left side - Laptop Image */}
-                    <div className="relative">
-                        <div className="relative overflow-hidden rounded-lg">
-                            <img
+                    <div className="relative h-full">
+                        <div className="relative h-full overflow-hidden rounded-lg">
+                            <motion.img
+                                whileHover={{ scale: 2 }}
+                                transition={{ duration: 2 }}
                                 src="/laptop.avif"
                                 alt="Laptop with glowing screen"
                                 className="h-full w-full object-cover"
@@ -53,13 +91,25 @@ export default function HeroSection() {
                     {/* Right side - Stats */}
                     <div className="h-full flex flex-col px-6 gap-6 justify-center bg-black rounded-lg">
                         <h2 className="text-4xl font-bold md:text-5xl">
-                            Embrace the future with our new way
+                            {"Embrace the future with our new way".split(" ").map((el, i) => (
+                                <motion.span
+                                    key={i}
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    transition={{
+                                        duration: 0.25,
+                                        delay: i / 10,
+                                    }}
+                                >
+                                    {el}{" "}
+                                </motion.span>
+                            ))}
                         </h2>
 
                         <div className="space-y-6">
                             <div className="space-y-2">
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-bold">16</span>
+                                    <Counter value={16} />
                                     <span className="text-3xl font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Years of Experiences</p>
@@ -67,7 +117,7 @@ export default function HeroSection() {
 
                             <div className="space-y-2">
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-bold">12,000</span>
+                                    <Counter value={12000} />
                                     <span className="text-3xl font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Projects completed from all over the world</p>
@@ -75,7 +125,7 @@ export default function HeroSection() {
 
                             <div className="space-y-2">
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-bold">196</span>
+                                    <Counter value={196} />
                                     <span className="text-3xl font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Awards achieved from different sites</p>
@@ -88,6 +138,8 @@ export default function HeroSection() {
                     </div>
                 </div>
             </section >
+
+            <Slider />
         </div >
     )
 }
