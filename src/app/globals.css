@@ -70,7 +70,7 @@ body {
 
 .half-border {
   position: relative;
-  border-right: 2px solid #3a3b3e;
+  border-right: 1px solid #3a3b3e;
 }
 
 .half-border::after {
@@ -78,7 +78,7 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 2px;
+  height: 1px;
   width: 100%;
   background: linear-gradient(to right,
       #3a3b3e00 0%,
@@ -91,7 +91,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  height: 2px;
+  height: 1px;
   width: 100%;
   background: linear-gradient(to right,
       #3a3b3e00 0%,

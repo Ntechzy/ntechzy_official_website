@@ -23,7 +23,7 @@ const ChooseUs = () => {
     };
 
     return (
-        <div className='bg-white text-black mt-[160px] h-full rounded-[24px] p-[48px] flex justify-between m-auto'>
+        <div className='bg-white text-black mt-[120px] h-full rounded-[24px] p-[48px] flex justify-between m-auto'>
             <div className='w-[50%] '>
                 <GooeyEffect/>
             </div>
@@ -68,6 +68,7 @@ const ChooseUs = () => {
                         </span>
                     </motion.li>
                 </motion.ul>
+                <DirectionAwareButton title={'See our workflow'} color={"bg-secondary"} hov_color={"bg-black"} />
             </div>
         </div>
     );
