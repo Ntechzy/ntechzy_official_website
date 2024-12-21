@@ -1,12 +1,13 @@
 'use client'
- 
+
 import Link from "next/link"
-import Navbar from "../navbar/Navbar" 
+import Navbar from "../navbar/Navbar"
 import { IoSparklesSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { TextFade } from "@/animations/TextFade";
 import Counter from "@/animations/Counter";
 import Slider from "./Slider";
+import DirectionAwareButton from "../shared/Button";
 
 export default function HeroSection() {
 
@@ -131,10 +132,9 @@ export default function HeroSection() {
                                 <p className="text-gray-400">Awards achieved from different sites</p>
                             </div>
                         </div>
-
-                        <Link href={'#'} className="w-fit px-8 py-2 border-2 rounded-lg hover:bg-secondary flex items-center gap-x-2 justify-center text-white">
-                            About Us
-                        </Link>
+                        {/* < div className="w-fit px-8 py-2 border-2 rounded-lg hover: flex items-center gap-x-2 justify-center text-white"> */}
+                        <DirectionAwareButton title={'About Us'} color={"bg-transprent"} hov_color={"bg-secondary"} border="border-[1px] border-white" />
+                        {/* </div> */}
                     </div>
                 </div>
             </section >

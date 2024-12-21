@@ -23,12 +23,12 @@ const ChooseUs = () => {
     };
 
     return (
-        <div className='bg-white text-black mt-[160px] h-full rounded-[24px] p-[48px] flex justify-between m-auto'>
-            <div className='w-[50%] '>
+        <div className='bg-white text-black mt-[120px] h-full rounded-[24px] p-[48px] flex justify-between m-auto'>
+            <div className='w-[50%] hidden md:block'>
                 <GooeyEffect/>
             </div>
-            <div className='w-[50%] leading-tight'>
-                <h1 className='font-[600] text-[48px] pr-[57px] pb-3'>
+            <div className='w-full md:w-[50%] leading-tight'>
+                <h1 className='font-[600] text-[48px] pr-0 md:pr-[57px] pb-3'>
                     <AnimatedStretchedHeading
                         titles={['Boost your business', 'to high level']}
                         topBarTitle={'Why choose us'}
@@ -68,6 +68,7 @@ const ChooseUs = () => {
                         </span>
                     </motion.li>
                 </motion.ul>
+                <DirectionAwareButton title={'See our workflow'} color={"bg-secondary"} hov_color={"bg-black"} />
             </div>
         </div>
     );

@@ -73,11 +73,11 @@ const GooeyEffect = () => {
                 </defs>
             </svg>
 
-            {/* Loop through the cards to render them with alternate direction, position, and zCoordinate */}
+          
             {cardPositions.map((card) => (
                 <GooeyCards
-                    key={card.id}  // Use card's unique 'id' as the key here
-                    id={card.id}    // Pass the 'id' to the component
+                    key={card.id}  
+                    id={card.id}   
                     direction={card.direction}
                     position={card.position}
                     setCardPositions={setCardPositions}

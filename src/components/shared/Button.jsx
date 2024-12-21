@@ -1,7 +1,8 @@
+'use client'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-const DirectionAwareButton = () => {
+const DirectionAwareButton = ({ title, color, hov_color, border = 'transprent' }) => {
     const [rippleStyle, setRippleStyle] = useState({
         x: 0,
         y: 0,
@@ -52,7 +53,7 @@ const DirectionAwareButton = () => {
 
     return (
         <button
-            className="relative w-[166px] h-[46px] rounded-lg mx-10 overflow-hidden bg-secondary text-white"
+            className={`relative w-[166px] h-[46px] rounded-lg mx-0 md:mx-10 overflow-hidden ${color} ${border} text-white`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -87,7 +88,7 @@ const DirectionAwareButton = () => {
 
             {!rippleStyle.isActive && (
                 <motion.span
-                    className="absolute top-0 left-0 bg-black  rounded-full"
+                    className={`absolute top-0 left-0 ${hov_color}  rounded-full`}
                     initial={{
                         width: rippleStyle.size,
                         height: rippleStyle.size,
