@@ -13,7 +13,7 @@ import FAQ from "@/components/FAQ";
 export default function Home() {
   return (
 
-    <div>
+    <div className={"p-2"}>
       {/* <SmoothScroll> */}
       <HeroSection />
       <Services />

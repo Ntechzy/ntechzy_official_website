@@ -53,15 +53,15 @@ const DirectionAwareButton = ({ title, color, hov_color, border = 'transprent' }
 
     return (
         <button
-            className={`relative w-[166px] h-[46px] rounded-lg md:mx-10 overflow-hidden ${color} ${border} text-white`}
+            className={`relative w-[166px] h-[46px] rounded-lg mx-0 md:mx-10 overflow-hidden ${color} ${border} text-white`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <span className="relative z-10">{title}</span>
+            <span className="relative z-10">See our workflow</span>
 
             {rippleStyle.isActive && (
                 <motion.span
-                    className={`absolute top-0 left-0 ${hov_color} rounded-full`}
+                    className="absolute top-0 left-0 bg-black rounded-full"
                     initial={{
                         width: 0,
                         height: 0,

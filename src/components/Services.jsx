@@ -7,18 +7,14 @@ const Services = () => {
   const handleClick = () => {
     console.log("clicked")
   }
-
-
   return (
-    <div
-
-      className="mt-[160px]">
+    <div className="mt-[160px]">
       <AnimatedHeading
-        title={"Services Unleash your potential with our tailored"}
+        title={"Unleash your potential with our tailored"}
         subTitle={"solutions for your every tech needs"}
         topBarTitle={"Services"}
       />
-      <div className="grid gap-[24px] md:grid-cols-3 grid-cols-1 m-auto justify-center place-items-center pt-[32px] px-[24px] mt-[90px] ">
+      <div className="grid gap-[24px] md:grid-cols-3 grid-cols-1 m-auto justify-center place-items-center py-[32px] md:px-[24px]">
         {servicedata.map((item, i) => {
           return (
             <motion.div initial={{ display: "hidden", opacity: 0, transform: "translateY(4rem)", transition: "all 1s" }}
