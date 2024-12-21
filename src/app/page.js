@@ -4,6 +4,8 @@ import Services from "@/components/Services";
 import SmoothScroll from "@/components/shared/SmoothScroll";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
+import SoothingScroll from "@/components/shared/SoothingScroll";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -15,7 +17,8 @@ export default function Home() {
       <ChooseUs />
       <Team />
       <Testimonials />
-      {/* </SmoothScroll> */}
+        <FAQ/>
+       {/*<SmoothScroll/>*/}
     </div>
 
   );

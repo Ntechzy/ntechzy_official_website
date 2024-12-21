@@ -35,7 +35,7 @@ const SmoothScroll = ({ children }) => {
         [0, -(pageHeight - window.innerHeight)]
     );
 
-    const physics = { damping: 15, mass: 0.5, stiffness: 80 };
+    const physics = { damping: 15, mass: 0.5, stiffness: 10 };
     const spring = useSpring(transform, physics);
 
     return (

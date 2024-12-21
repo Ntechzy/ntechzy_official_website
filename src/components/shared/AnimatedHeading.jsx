@@ -3,11 +3,11 @@ import {motion} from "motion/react";
 
 
 
-const AnimatedHeading = ({topBarTitle , title , subTitle}) => {
+const AnimatedHeading = ({topBarTitle , title , subTitle,polyType="green-polygon"}) => {
 
     return (
          <div className={"flex flex-col items-center gap-10 md:gap-8 "}>
-        <p className={"green-polygon flex items-center gap-2 font-[600] text-xs md:text-base"}>{topBarTitle}</p>
+        <p className={`${polyType} flex items-center gap-2 font-[600] text-xs md:text-base`}>{topBarTitle}</p>
         <div className={"flex flex-col gap-1"}>
             <motion.p
                 className={"text-[20px] md:text-[48px] font-[600]  text-center"}
