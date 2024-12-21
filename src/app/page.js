@@ -1,4 +1,5 @@
 import ChooseUs from "@/components/ChooseUs";
+import { Footer } from "@/components/footer/footer";
 import HeroSection from "@/components/hero/Hero";
 import Services from "@/components/Services";
 import SmoothScroll from "@/components/shared/SmoothScroll";
@@ -17,8 +18,9 @@ export default function Home() {
       <ChooseUs />
       <Team />
       <Testimonials />
-        <FAQ/>
-       {/*<SmoothScroll/>*/}
+      <FAQ />
+      <Footer />
+      {/*<SmoothScroll/>*/}
     </div>
 
   );
