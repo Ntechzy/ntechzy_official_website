@@ -7,19 +7,20 @@ import Link from "next/link";
 import { IoSparklesSharp } from "react-icons/io5";
 import DirectionAwareButton from "../shared/Button";
 import Slider from "./Slider";
+import Navbar from "../navbar/Navbar";
 
 export default function HeroSection() {
 
     return (
-        <div className="h-auto w-full flex flex-col gap-8 bg-primary rounded-3xl my-12 p-4 md:p-10">
-
-            <div className="w-full bg-black text-white rounded-3xl md:p-6">
+        <div className="h-auto w-full flex flex-col gap-8 bg-primary rounded-3xl p-4 md:p-10">
+            {/* <Navbar/> */}
+            <div className="w-full bg-black text-white rounded-3xl p-6">
                 {/* First Hero Section */}
                 <section className="relative h-auto w-full overflow-hidden px-4 py-12 md:px-6 lg:px-8">
                     <div className="mx-auto max-w-7xl">
                         <div className="relative z-10 flex flex-col items-start gap-8">
                             <div>
-                                {"We foster rapid expansion through digital innovation".split(" ").map((el, i) => (
+                                {"Empowering Growth with Cutting-Edge Tech and Bold Marketing".split(" ").map((el, i) => (
                                     <motion.span
                                         key={i}
                                         initial={{ opacity: 0 }}
@@ -38,20 +39,20 @@ export default function HeroSection() {
                                 direction="up"
                                 className="pt-0 pb-5 flex-col flex justify-center space-y-0"
                             >
-                                <p className="max-w-2xl text-[14px] font-[600] md:text-lg text-gray-400">
-                                    We revolutionize industries with dynamic digital solutions,
+                                <p className="max-w-2xl text-lg text-gray-400">
+                                From designing future-ready digital solutions to 
                                 </p>
-                                <p className="max-w-2xl text-[14px] font-[600] md:text-lg text-gray-400">
-                                    tailored to meet contemporary demands and drive
+                                <p className="max-w-2xl text-lg text-gray-400">
+                                crafting marketing strategies that deliver results,
                                 </p>
-                                <p className="max-w-2xl text-[14px] font-[600] md:text-lg text-gray-400">
-                                    impactful transformations for businesses of all sectors.
+                                <p className="max-w-2xl text-lg text-gray-400">
+                                we’re here to revolutionize the way you grow.
                                 </p>
                             </TextFade>
 
                             <div className="flex md:flex-row flex-col w-full md:items-center  justify-between ">
                                 <div className="flex md:flex-row flex-col  md:items-center gap-6">
-                                    <DirectionAwareButton title={'Get Started'} color={"bg-black"} hov_color={"bg-secondary"} border="border-2 " />
+                                    <DirectionAwareButton title={'Enquire Now'} color={"bg-black"} hov_color={"bg-secondary"} border="border-2 " />
                                     <div className="flex md:items-center gap-2">
                                         <IoSparklesSharp className="h-5 w-5 text-blue-500" />
                                         <span className="text-sm font-bold ">12 business reaching today</span>

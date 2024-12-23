@@ -1,123 +1,206 @@
-"use client"
-import { useState } from 'react';
+'use client'
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaBars } from 'react-icons/fa6';
 import { LiaTimesSolid } from 'react-icons/lia';
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import useScrollPosition from '@/hooks/useScrollPosition';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [activeSubmenu, setActiveSubmenu] = useState(null);
 
-    const handleClick = () => {
-        setOpen(!open);
+    const scrollPosition = useScrollPosition()
+
+    // Handle body scroll when menu is open
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [open]);
+
+    const handleSubmenuClick = (index) => {
+        setActiveSubmenu(activeSubmenu === index ? null : index);
     };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
 
     const menuItems = [
         { name: "Home", href: "/" },
         {
             name: "Services",
             submenu: [
-                { name: "Website development", href: "/book-detail" },
-                { name: "App development", href: "/book-detail" },
-                { name: "Students assignment support", href: "/book-detail" },
-                { name: "Research and report", href: "/book-detail" },
+                { name: "Website development", href: "/services/web" },
+                { name: "App development", href: "/services/app" },
+                { name: "Students assignment support", href: "/services/assignment" },
+                { name: "Research and report", href: "/services/research" },
             ],
         },
         { name: "Portfolio", href: "/portfolio" },
         {
             name: "Article",
             submenu: [
-                { name: "Single post page", href: "/book-detail" },
-                { name: "Multiple post page", href: "/book-detail" },
-                { name: "Single detail page", href: "/book-detail" },
+                { name: "Single post page", href: "/article/single" },
+                { name: "Multiple post page", href: "/article/multiple" },
+                { name: "Single detail page", href: "/article/detail" },
             ],
         },
-        { name: "About", href: "/me" },
+        { name: "About", href: "/about" },
         { name: "Contact", href: "/contact" },
     ];
 
-
-
     return (
-        <nav className="w-full flex items-center gap-x-36  md:flex-row z-50 shadow">
-            {/* Logo Section */}
-            <Link href="/" className="text-2xl text-zinc-200 font-bold mr-16 flex items-center">
-                <img
-                    src="/logo.png"
-                    alt="Laptop with glowing screen"
-                    className="h-full w-full object-cover"
-                />
-            </Link>
+        <>
+            <nav className={`h-24 px-6 flex items-center justify-between transition-all duration-500 ${scrollPosition > 500 ? "bg-[#292b2d] shadow-lg fixed top-0 left-0 right-0 z-40" : "bg-transparent"}`}>
+                {/* Logo */}
+                <Link href="/" className="relative z-50">
+                    <img
+                        src="/logo.png"
+                        alt="Company Logo"
+                        className="h-12 w-auto"
+                    />
+                </Link>
 
-            {/* Toggle button */}
-            <button
-                onClick={handleClick}
-                className="flex-1 lg:hidden text-zinc-600 hover:text-indigo-600 ease-in-out duration-300 flex items-center justify-end"
-            >
-                {open ? <LiaTimesSolid className="text-xl" /> : <FaBars className="text-xl" />}
-            </button>
+                {/* Mobile Menu Button */}
+                <button
+                    onClick={() => setOpen(true)}
+                    className="lg:hidden relative z-50 p-2 text-white hover:text-blue-500 transition-colors"
+                    aria-label="Open menu"
+                >
+                    <FaBars className="text-2xl" />
+                </button>
 
-            <div
-                className={`${open ? "flex absolute top-14 left-0 w-full h-auto" : "hidden"
-                    } flex-1 md:flex flex-col md:flex-row gap-x-5 gap-y-2 md:items-center md:p-0 sm:p-4 p-4 justify-between md:bg-transparent bg-zinc-900 md:shadow-none sm:shadow-md shadow-md rounded-md`}
-            >
-                <ul className="list-none flex md:items-center sm:items-start items-start gap-x-7 gap-y-2 flex-wrap md:flex-row sm:flex-col flex-col text-base text-zinc-500 font-normal">
-                    {menuItems.map((item, index) => (
-                        <li key={index} className={`relative group ease-in-out duration-300`}>
-                            {item.submenu ? (
-                                <>
-                                    <h6 className="hover:text-indigo-500 ease-in-out duration-300 flex items-center gap-x-1 cursor-pointer">
-                                        {item.name} <IoMdArrowDropdown />
-                                    </h6>
-                                    <div className="absolute top-6 left-0 group-hover:block hidden rounded-lg md:py-5 py-3 max-w-[400px] w-[300px] min-w-[250px] h-auto ease-in-out duration-300 z-50">
-                                        <div className="w-full relative bg-white rounded-lg p-4 shadow-md border border-zinc-700">
-                                            <div className="absolute -top-[1.45rem] left-0 text-4xl text-zinc-700 -z-10">
-                                                <IoMdArrowDropup />
-                                            </div>
-                                            <div className="space-y-2">
-                                                {item.submenu.map((submenuItem, subIndex) => (
+                {/* Desktop Menu */}
+                <div className="hidden lg:flex items-center space-x-8">
+                    <ul className="flex items-center space-x-6">
+                        {menuItems.map((item, index) => (
+                            <li key={index} className="relative group">
+                                {item.submenu ? (
+                                    <div className="relative">
+                                        <button className="flex items-center space-x-1 text-white hover:text-blue-500 transition-colors">
+                                            <span>{item.name}</span>
+                                            <IoMdArrowDropdown />
+                                        </button>
+                                        <div className="absolute top-full left-0 hidden group-hover:block pt-2">
+                                            <div className="bg-white rounded-lg shadow-lg p-4 min-w-[200px]">
+                                                {item.submenu.map((subItem, subIndex) => (
                                                     <Link
                                                         key={subIndex}
-                                                        href={submenuItem.href}
-                                                        onClick={handleClose}
-                                                        className="hover:text-indigo-500 ease-in-out duration-300 block"
+                                                        href={subItem.href}
+                                                        className="block py-2 text-gray-800 hover:text-blue-500 transition-colors"
                                                     >
-                                                        {submenuItem.name}
+                                                        {subItem.name}
                                                     </Link>
                                                 ))}
                                             </div>
                                         </div>
                                     </div>
-                                </>
-                            ) : (
-                                <Link
-                                    href={item.href}
-                                    onClick={handleClose}
-                                    className={`hover:text-indigo-600 ease-in-out duration-300`}
-                                >
-                                    {item.name}
-                                </Link>
-                            )}
-                        </li>
-                    ))}
-                </ul>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className="text-white hover:text-blue-500 transition-colors"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                
+                <Link
+                    href="#"
+                    className="hidden lg:block px-6 py-2 bg-white text-primary rounded-lg hover:bg-secondary hover:text-white transition-colors"
+                >
+                    Get Started
+                </Link>
+            </nav>
 
-                <div className="flex md:items-center sm:items-start items-start gap-x-5 gap-y-2 flex-wrap md:flex-row sm:flex-col flex-col text-base font-medium text-zinc-800">
-                    <Link
-                        href="#"
-                        className="w-fit px-8 py-2 rounded-lg bg-white hover:bg-secondary flex items-center gap-x-2 justify-center text-primary hover:text-white"
+            {/* Mobile Menu Overlay */}
+            {open && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                    onClick={() => setOpen(false)}
+                />
+            )}
+
+            {/* Mobile Menu Drawer */}
+            <div className={`fixed top-0 left-0 bottom-0 w-[300px] bg-white z-50 lg:hidden transform transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : '-translate-x-full'}`}>
+                <div className="flex items-center text-primary justify-between p-6 border-b">
+                    <h2 className="text-xl font-semibold">Menu</h2>
+                    <button
+                        onClick={() => setOpen(false)}
+                        className="p-2 hover:text-blue-500 transition-colors"
+                        aria-label="Close menu"
                     >
-                        Get Started
-                    </Link>
+                        <LiaTimesSolid className="text-2xl" />
+                    </button>
+                </div>
+                <div className="overflow-y-auto h-[calc(100%-80px)]">
+                    <ul className="p-4 space-y-2">
+                        {menuItems.map((item, index) => (
+                            <li key={index} className="border-b border-gray-100 last:border-none">
+                                {item.submenu ? (
+                                    <div>
+                                        <button
+                                            onClick={() => handleSubmenuClick(index)}
+                                            className="flex items-center justify-between w-full py-3 text-gray-800 hover:text-blue-500 transition-colors"
+                                            aria-expanded={activeSubmenu === index}
+                                            aria-controls={`submenu-${index}`}
+                                        >
+                                            <span>{item.name}</span>
+                                            {activeSubmenu === index ? (
+                                                <IoMdArrowDropup className="text-xl" />
+                                            ) : (
+                                                <IoMdArrowDropdown className="text-xl" />
+                                            )}
+                                        </button>
+                                        <div id={`submenu-${index}`} className={`overflow-hidden transition-all duration-300 ${activeSubmenu === index ? 'max-h-[500px]' : 'max-h-0'
+                                            }`}>
+                                            <div className="pl-4 pb-3 space-y-2">
+                                                {item.submenu.map((subItem, subIndex) => (
+                                                    <Link
+                                                        key={subIndex}
+                                                        href={subItem.href}
+                                                        onClick={() => setOpen(false)}
+                                                        className="block py-2 text-gray-600 hover:text-blue-500 transition-colors"
+                                                    >
+                                                        {subItem.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        onClick={() => setOpen(false)}
+                                        className="block py-3 text-gray-800 hover:text-blue-500 transition-colors"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="p-4">
+                        <Link
+                            href="#"
+                            onClick={() => setOpen(false)}
+                            className="block w-full py-3 text-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        >
+                            Get Started
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </>
     );
 };
 
 export default Navbar;
+

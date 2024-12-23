@@ -5,8 +5,12 @@ const slides = [
     { icon: '/slide1.png' },
     { icon: '/slide2.png' },
     { icon: '/slide3.png' },
-    { icon: '/slide4.png' },
+    { icon: '/slide4.jpg' },
     { icon: '/slide5.png' },
+    { icon: '/slide6.png' },
+    { icon: '/slide7.webp' },
+    { icon: '/slide8.png' },
+    { icon: '/slide9.png' },
 ]
 
 const Slider = () => {
@@ -15,7 +19,7 @@ const Slider = () => {
     return (
         <div className="relative h-full overflow-hidden py-12 w-full">
             <motion.div
-                className="flex"
+                className="flex gap-8"
                 animate={{
                     x: ['0%', '-100%'],
                     transition: {

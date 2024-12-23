@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import FooterSlider from "./FooterSlider";
+import { footerPolicy, policy, quickLinks, socialMediaLinks } from "@/data/footerData";
 
 export function Footer() {
   const [formData, setFormData] = useState({
@@ -134,13 +135,12 @@ export function Footer() {
             </div>
 
             <div className="space-y-6">
-              <div>
-                <h3 className="mb-4 text-lg font-semibold">Home</h3>
+            <div>
+                <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                 <ul className="space-y-3 text-gray-400">
-                  <li><Link href="#" className="hover:text-white">Pages</Link></li>
-                  <li><Link href="#" className="hover:text-white">Blogs</Link></li>
-                  <li><Link href="#" className="hover:text-white">Projects</Link></li>
-                  <li><Link href="#" className="hover:text-white">Contact</Link></li>
+                  {quickLinks.map((item, index) => (
+                    <li><Link key={index} href={item.path} className="hover:text-white">{item.name}</Link></li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -151,11 +151,11 @@ export function Footer() {
                 <div className="space-y-3 text-gray-400">
                   <p className="font-medium text-white">Address</p>
                   <p>58 Howard, San Francisco CA 411</p>
-
-                  <p className="font-medium text-white">Email</p>
+                  
+                  <p className="font-medium text-white">Support Email</p>
                   <p>contact@Tecko.co</p>
-
-                  <p className="font-medium text-white">Fax</p>
+                  
+                  <p className="font-medium text-white">Phone Number</p>
                   <p>fax@Tecko.co</p>
 
                   <p className="font-medium text-white">Work Hour</p>
@@ -177,14 +177,14 @@ export function Footer() {
         <div className="mt-12 border-t border-gray-800 pt-8">
           <div className="flex flex-col justify-between space-y-4 md:flex-row md:space-y-0">
             <div className="flex space-x-6 text-gray-400">
-              <Link href="#" className="hover:text-white">Facebook</Link>
-              <Link href="#" className="hover:text-white">Instagram</Link>
-              <Link href="#" className="hover:text-white">LinkedIn</Link>
+              {socialMediaLinks.map((item, index) => (
+                <Link key={index} href={item.path} className="hover:text-white">{item.name}</Link>
+              ))}
             </div>
             <div className="flex space-x-6 text-gray-400">
-              <Link href="#" className="hover:text-white">Privacy Policy</Link>
-              <Link href="#" className="hover:text-white">Terms of Services</Link>
-              <Link href="#" className="hover:text-white">Virtual Reality</Link>
+              {policy.map((item, index) => (
+                <Link key={index} href={item.path} className="hover:text-white">{item.name}</Link>
+              ))}
             </div>
           </div>
         </div>

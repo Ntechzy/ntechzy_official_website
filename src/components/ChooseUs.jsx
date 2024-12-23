@@ -21,6 +21,12 @@ const ChooseUs = () => {
         visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
     };
 
+    const aboutUsPoints = [
+        "Bespoke tech solutions",
+        "High-performing marketing strategies",
+        "Creative campaigns that make a lasting impact"
+    ]
+
     return (
         <div className='bg-white text-black mt-[120px] h-full rounded-[24px] py-[30px] px-[15px] md:p-[48px] flex justify-between m-auto'>
             <div className='w-[50%] hidden md:block'>
@@ -30,7 +36,7 @@ const ChooseUs = () => {
                 <h1 className='font-[600] text-[48px] pr-0 md:pr-[57px] pb-3'>
                     <AnimatedStretchedHeading
                         titles={['Boost your business', 'to high level']}
-                        topBarTitle={'Why choose us'}
+                        topBarTitle={'About Us'}
                         cls={'yellow-polygon'}
                     />
                 </h1>
@@ -42,30 +48,14 @@ const ChooseUs = () => {
                     initial="hidden"
                     whileInView="visible"
                 >
-                    <motion.li variants={listItem} className='flex items-center gap-2'>
-                        <LuSparkle className="h-5 w-5 text-blue-500" />
-                        <span>
-                            Latest IT Solutions & Integration With Blockchain
-                        </span>
-                    </motion.li>
-                    <motion.li variants={listItem} className='flex items-center gap-2'>
-                        <LuSparkle className="h-5 w-5 text-blue-500 " />
-                        <span>
-                            Over 100+ Payment Gateway Support
-                        </span>
-                    </motion.li>
-                    <motion.li variants={listItem} className='flex items-center gap-2'>
-                        <LuSparkle className="h-5 w-5 text-blue-500 " />
-                        <span>
-                            AI machine & Deep Learning
-                        </span>
-                    </motion.li>
-                    <motion.li variants={listItem} className='flex items-center gap-2'>
-                        <LuSparkle className="h-5 w-5 text-blue-500 " />
-                        <span>
-                            Dedicated Support 24/7
-                        </span>
-                    </motion.li>
+                    {aboutUsPoints.map((point, index) => (
+                        <motion.li key={index} variants={listItem} className='flex items-center gap-2'>
+                            <LuSparkle className="h-5 w-5 text-blue-500" />
+                            <span>
+                                {point}
+                            </span>
+                        </motion.li>
+                    ))}
                 </motion.ul>
                 <div className="md:mx-[22px]">
                     <DirectionAwareButton title={'See our workflow'} color={"bg-secondary"} hov_color={"bg-black"} />
