@@ -8,10 +8,10 @@ const AnimatedStretchedHeading = ({ titles = [], topBarTitle, cls = "blue-polygo
     return (
         <div className={"flex flex-col items-start gap-10 md:gap-2"}>
             {/* Top bar title */}
-            <p className={`${cls} flex items-center gap-2 font-[600] text-xs md:text-base ml-2 md:ml-4`}>
+           {topBarTitle && <p className={`${cls} flex items-center gap-2 font-[600] text-xs md:text-base ml-2 md:ml-4`}>
                 {topBarTitle}
             </p>
-
+}
             {/* Main titles */}
             <div className={"flex flex-col gap-1 items-start"}>
                 {titles.map((title, titleIndex) => (
