@@ -8,7 +8,7 @@ const Services = () => {
     console.log("clicked")
   }
   return (
-    <div className="mt-[160px]">
+    <div className="mt-[160px] w-full">
       <AnimatedHeading
         title={"Unleash your potential with our tailored"}
         subTitle={"solutions for your every tech needs"}
@@ -22,13 +22,13 @@ const Services = () => {
                 opacity: 1,
                 transition: 'all 1s',
                 transform: 'translateY(-4rem)',
-              }} key={i} className="group overflow-hidden">
+              }} key={i} className="group overflow-hidden w-full">
 
-              <div className="half-border w-[400px] rounded-2xl overflow-hidden m-2 ">
+              <div className="half-border md:w-[400px] rounded-2xl overflow-hidden m-2 ">
 
-                <div className="relative  before:absolute before:content-[''] before:top-0 before:left-0 before:w-full before:h-full before:bg-custom-gradient before:opacity-0 before:group-hover:opacity-[0.2] before:transition-opacity before:duration-500 before:ease-in-out before:pointer-events-none ">
+                <div className="relative before:absolute before:content-[''] before:top-0 before:left-0 before:w-full before:h-full before:bg-custom-gradient before:opacity-0 before:group-hover:opacity-[0.2] before:transition-opacity before:duration-500 before:ease-in-out before:pointer-events-none ">
 
-                  <div className="relative w-full h-full bg-cover  before:opacity-[0] before:absolute before:content-['_']  before:w-full before:h-full before:bg-[url('/fancy-box-bg.png')]  before:group-hover:opacity-[0.5] before:transition-opacity before:duration-500 before:ease-in-out before:-z-1 before:pointer-events-none">
+                  <div className="relative w-full h-full bg-cover before:opacity-[0] before:absolute before:content-['_']  before:w-full before:h-full before:bg-[url('/fancy-box-bg.png')] before:group-hover:opacity-[0.5] before:transition-opacity before:duration-500 before:ease-in-out before:-z-1 before:pointer-events-none">
 
                     <div className=" rounded-xl py-[24px] px-[32px] cursor-pointer">
                       <motion.div

@@ -1,10 +1,9 @@
 'use client'
+import GooeyEffect from "@/components/GooeyEffect";
 import { motion } from 'framer-motion';
 import { LuSparkle } from "react-icons/lu";
-import MergingEdges from './MergingEdges';
 import AnimatedStretchedHeading from './shared/AnimatedStretchedHeading';
 import DirectionAwareButton from './shared/Button';
-import GooeyEffect from "@/components/GooeyEffect";
 
 const ChooseUs = () => {
     const listContainer = {
@@ -23,9 +22,9 @@ const ChooseUs = () => {
     };
 
     return (
-        <div className='bg-white text-black mt-[120px] h-full rounded-[24px] p-[48px] flex justify-between m-auto'>
+        <div className='bg-white text-black mt-[120px] h-full rounded-[24px] py-[30px] px-[15px] md:p-[48px] flex justify-between m-auto'>
             <div className='w-[50%] hidden md:block'>
-                <GooeyEffect/>
+                <GooeyEffect />
             </div>
             <div className='w-full md:w-[50%] leading-tight'>
                 <h1 className='font-[600] text-[48px] pr-0 md:pr-[57px] pb-3'>
@@ -38,13 +37,13 @@ const ChooseUs = () => {
 
 
                 <motion.ul
-                    className='my-[20px] flex flex-col gap-[25px] text-[16px] font-[600] ml-2 md:ml-4'
+                    className='my-[20px] flex flex-col  gap-[25px] text-[14px]  tracking-wide md:leading-[0] leading-6  md:text-[16px] font-bold md:font-[600] ml-2 md:ml-4'
                     variants={listContainer}
                     initial="hidden"
                     whileInView="visible"
                 >
                     <motion.li variants={listItem} className='flex items-center gap-2'>
-                        <LuSparkle className="h-5 w-5 text-blue-500"  />
+                        <LuSparkle className="h-5 w-5 text-blue-500" />
                         <span>
                             Latest IT Solutions & Integration With Blockchain
                         </span>

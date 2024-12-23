@@ -1,19 +1,18 @@
 'use client'
 
-import Link from "next/link"
-import Navbar from "../navbar/Navbar"
-import { IoSparklesSharp } from "react-icons/io5";
-import { motion } from "framer-motion";
-import { TextFade } from "@/animations/TextFade";
 import Counter from "@/animations/Counter";
-import Slider from "./Slider";
+import { TextFade } from "@/animations/TextFade";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { IoSparklesSharp } from "react-icons/io5";
 import DirectionAwareButton from "../shared/Button";
+import Slider from "./Slider";
 
 export default function HeroSection() {
 
     return (
-        <div className="h-auto w-full flex flex-col gap-8 bg-primary rounded-3xl my-12 p-10">
-            <Navbar />
+        <div className="h-auto w-full flex flex-col gap-8 bg-primary rounded-3xl my-12 p-4 md:p-10">
+
             <div className="w-full bg-black text-white rounded-3xl p-6">
                 {/* First Hero Section */}
                 <section className="relative h-auto w-full overflow-hidden px-4 py-12 md:px-6 lg:px-8">
@@ -50,12 +49,12 @@ export default function HeroSection() {
                                 </p>
                             </TextFade>
 
-                            <div className="flex w-full items-center justify-between ">
-                                <div className="flex items-center gap-6">
+                            <div className="flex md:flex-row flex-col w-full items-center justify-between ">
+                                <div className="flex md:flex-row flex-col  md:items-center gap-6">
                                     <Link href={'#'} className="w-fit px-8 py-2 rounded-lg bg-white hover:bg-secondary flex items-center gap-x-2 justify-center text-primary hover:text-white">
                                         Get Started
                                     </Link>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex md:items-center gap-2">
                                         <IoSparklesSharp className="h-5 w-5 text-blue-500" />
                                         <span className="text-sm font-bold ">12 business reaching today</span>
                                     </div>
@@ -74,7 +73,7 @@ export default function HeroSection() {
 
             {/* Second Hero Section */}
             <section className="h-auto w-full rounded-3xl" >
-                <div className="mx-auto grid w-full gap-8 md:grid-cols-2">
+                <div className="mx-auto grid w-full gap-8 grid-cols-1 md:grid-cols-2">
                     {/* Left side - Laptop Image */}
                     <div className="relative h-full">
                         <div className="relative h-full overflow-hidden rounded-lg">
@@ -90,8 +89,8 @@ export default function HeroSection() {
                     </div>
 
                     {/* Right side - Stats */}
-                    <div className="h-full flex flex-col px-6 gap-6 justify-center bg-black rounded-lg">
-                        <h2 className="text-4xl font-bold md:text-5xl">
+                    <div className="h-full flex flex-col px-6 md:py-0 py-[30px] gap-6 justify-center bg-black rounded-lg">
+                        <h2 className="text-[20px] md:pr-0 pr-[98px] font-bold md:text-5xl">
                             {"Embrace the future with our new way".split(" ").map((el, i) => (
                                 <motion.span
                                     key={i}
@@ -107,27 +106,27 @@ export default function HeroSection() {
                             ))}
                         </h2>
 
-                        <div className="space-y-6">
-                            <div className="space-y-2">
+                        <div className="space-y-6 ">
+                            <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
                                     <Counter value={16} />
-                                    <span className="text-3xl font-bold text-blue-500">+</span>
+                                    <span className="text-[20px] md:text-3xl font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Years of Experiences</p>
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
                                     <Counter value={12000} />
-                                    <span className="text-3xl font-bold text-blue-500">+</span>
+                                    <span className="text-[20px] md:text-3xl font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Projects completed from all over the world</p>
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
                                     <Counter value={196} />
-                                    <span className="text-3xl font-bold text-blue-500">+</span>
+                                    <span className="text-[20px] md:text-3xl font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Awards achieved from different sites</p>
                             </div>

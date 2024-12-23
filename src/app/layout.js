@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/footer/footer";
+import Navbar from "@/components/navbar/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +12,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 const redHatDisplay = Red_Hat_Display({
   variable: "--font-red-hat",
   subsets: ["latin"],
@@ -26,9 +29,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${redHatDisplay.className}  antialiased`}
       >
-
+        <Navbar />
         {children}
-
+        <Footer />
       </body>
     </html>
   );
