@@ -22,14 +22,18 @@ export default {
           '50%': { transform: 'scale(0.5)' },
           '100%': { transform: 'scale(1)' },
         },
-
+        showUp: {
+          '0%': { height: '0', opacity: "0" },
+          '50%': { height: '50%', opacity: "0.5" },
+          '100%': { height: '100%', opacity: "1" },
+        },
+        
       },
       animation: {
         scaleBack: 'scaleDown 0.3s ease',
-        scale: 'scale 0.5s linear',
+        scale: 'scale 0.5s linear', 
       },
       backgroundImage: {
-
         'custom-gradient': 'linear-gradient(250deg, #75757566 0%, #ffffff00 70%)',
       },
     },

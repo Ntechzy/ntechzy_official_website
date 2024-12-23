@@ -42,7 +42,7 @@ const Carousel = () => {
                     >
                         <div className="relative rounded-2xl overflow-hidden">
                             <img src={slide.image} alt="" className="w-full object-cover group-hover:scale-[1.05] ease-linear transition duration-500" />
-                            <div className='absolute z-[999] group-hover:inset-0 group-hover:transition-all group-hover:ease-linear group-hover:duration-700 group-hover:animate-scale w-full h-full flex items-center justify-center'>
+                            <div className='absolute z-[999] group-hover:inset-0 group-hover:transition-all group-hover:ease-linear group-hover:duration-700  h-full flex items-center justify-center'>
 
                                 <button
                                     onClick={prevSlide}

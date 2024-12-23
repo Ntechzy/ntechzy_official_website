@@ -31,6 +31,12 @@ const Navbar = () => {
 
     const menuItems = [
         { name: "Home", href: "/" },
+        { name: "About", href: "/about" },
+
+        { name: "Portfolio", href: "/portfolio" },
+        {
+            name: "Blogs", href: "/blogs"
+        },
         {
             name: "Services",
             submenu: [
@@ -40,16 +46,6 @@ const Navbar = () => {
                 { name: "Research and report", href: "/services/research" },
             ],
         },
-        { name: "Portfolio", href: "/portfolio" },
-        {
-            name: "Article",
-            submenu: [
-                { name: "Single post page", href: "/article/single" },
-                { name: "Multiple post page", href: "/article/multiple" },
-                { name: "Single detail page", href: "/article/detail" },
-            ],
-        },
-        { name: "About", href: "/about" },
         { name: "Contact", href: "/contact" },
     ];
 
@@ -111,7 +107,7 @@ const Navbar = () => {
                         ))}
                     </ul>
                 </div>
-                
+
                 <Link
                     href="#"
                     className="hidden lg:block px-6 py-2 bg-white text-primary rounded-lg hover:bg-secondary hover:text-white transition-colors"
