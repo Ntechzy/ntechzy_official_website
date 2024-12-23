@@ -13,6 +13,9 @@ const footerSlide = [
 ]
 
 const FooterSlider = () => {
+    const isMobile = window.innerWidth < 768;
+
+
     const duplicateSlides = [...footerSlide, ...footerSlide]
     return (
         <div className="relative h-full overflow-hidden pb-12 w-full">
@@ -28,7 +31,7 @@ const FooterSlider = () => {
                 }}
             >
                 {duplicateSlides.map((slide, index) => (
-                    <div key={index} className="flex-shrink-0" style={{ width: window.innerWidth < 768 ? '65%' : `${100 / footerSlide.length}%` }}>
+                    <div key={index} className="flex-shrink-0" style={{ width: isMobile ? '65%' : `${100 / footerSlide.length}%` }}>
                         <div className="flex items-center gap-2 justify-center h-full">
                             {/* {slide.icon} */}
                             {slide.icon}
