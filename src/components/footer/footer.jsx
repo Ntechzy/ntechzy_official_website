@@ -44,7 +44,7 @@ export function Footer() {
             <h2 className="mb-6 text-2xl font-bold">
               <span className="text-blue-500">•</span> You have request?
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4 mr-12">
+            <form onSubmit={handleSubmit} className="space-y-4 md:mr-12">
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <input
