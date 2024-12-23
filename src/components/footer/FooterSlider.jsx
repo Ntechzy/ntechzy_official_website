@@ -31,7 +31,7 @@ const FooterSlider = () => {
                 }}
             >
                 {duplicateSlides.map((slide, index) => (
-                    <div key={index} className={`flex-shrink-0 w-[60%] md:w-${width}`}  >
+                    <div key={index} className={`flex-shrink-0 w-[60%] md:w-[25%]`}  >
                         <div className="flex items-center gap-2 justify-center h-full">
                             {/* {slide.icon} */}
                             {slide.icon}

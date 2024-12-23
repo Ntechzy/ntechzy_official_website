@@ -67,7 +67,10 @@ const ChooseUs = () => {
                         </span>
                     </motion.li>
                 </motion.ul>
-                <DirectionAwareButton title={'See our workflow'} color={"bg-secondary"} hov_color={"bg-black"} />
+                <div className="md:mx-[22px]">
+                    <DirectionAwareButton title={'See our workflow'} color={"bg-secondary"} hov_color={"bg-black"} />
+
+                </div>
             </div>
         </div>
     );

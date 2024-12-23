@@ -49,18 +49,16 @@ export default function HeroSection() {
                                 </p>
                             </TextFade>
 
-                            <div className="flex md:flex-row flex-col w-full md:items-center justify-between ">
+                            <div className="flex md:flex-row flex-col w-full md:items-center  justify-between ">
                                 <div className="flex md:flex-row flex-col  md:items-center gap-6">
-                                    <Link href={'#'} className="w-fit px-8 py-2 rounded-lg bg-white hover:bg-secondary flex items-center gap-x-2 justify-center text-primary hover:text-white">
-                                        Get Started
-                                    </Link>
+                                    <DirectionAwareButton title={'Get Started'} color={"bg-black"} hov_color={"bg-secondary"} border="border-2 " />
                                     <div className="flex md:items-center gap-2">
                                         <IoSparklesSharp className="h-5 w-5 text-blue-500" />
                                         <span className="text-sm font-bold ">12 business reaching today</span>
                                     </div>
                                 </div>
 
-                                <div className="w-full flex items-end justify-end ">
+                                <div className="md:w-[50%] w-full flex items-end justify-end ">
                                     <img src="/hexagon.png" alt="" className="md:w-auto  h-full object-cover" />
                                 </div>
                             </div>
@@ -89,8 +87,8 @@ export default function HeroSection() {
                     </div>
 
                     {/* Right side - Stats */}
-                    <div className="h-full flex flex-col px-6 md:py-0 py-[30px] gap-6 justify-center bg-black rounded-lg">
-                        <h2 className="text-[20px] md:pr-0 pr-[98px] font-bold md:text-5xl">
+                    <div className="h-full flex flex-col px-[15px] md:px-[40px] py-[30px] gap-6 justify-center bg-black rounded-lg">
+                        <h2 className="text-[20px] md:pr-0 pr-[19px] font-bold md:text-5xl">
                             {"Embrace the future with our new way".split(" ").map((el, i) => (
                                 <motion.span
                                     key={i}
@@ -108,9 +106,9 @@ export default function HeroSection() {
 
                         <div className="space-y-6 ">
                             <div className="md:space-y-2">
-                                <div className="flex items-baseline gap-1">
+                                <div className="flex md:items-center items-baseline gap-1">
                                     <Counter value={16} />
-                                    <span className="text-[20px] md:text-3xl font-bold text-blue-500">+</span>
+                                    <span className="text-[20px] md:text-[48px] font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Years of Experiences</p>
                             </div>
@@ -118,7 +116,7 @@ export default function HeroSection() {
                             <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
                                     <Counter value={12000} />
-                                    <span className="text-[20px] md:text-3xl font-bold text-blue-500">+</span>
+                                    <span className="text-[20px] md:text-[48px] font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Projects completed from all over the world</p>
                             </div>
@@ -126,13 +124,13 @@ export default function HeroSection() {
                             <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
                                     <Counter value={196} />
-                                    <span className="text-[20px] md:text-3xl font-bold text-blue-500">+</span>
+                                    <span className="text-[20px] md:text-[48px] font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Awards achieved from different sites</p>
                             </div>
                         </div>
                         {/* < div className="w-fit px-8 py-2 border-2 rounded-lg hover: flex items-center gap-x-2 justify-center text-white"> */}
-                        <DirectionAwareButton title={'About Us'} color={"bg-transprent"} hov_color={"bg-secondary"} border="border-[1px] border-white" />
+                        <DirectionAwareButton title={'About us'} color={"bg-transprent"} border={"border-2 border-white"} hov_color={"bg-secondary"} />
                         {/* </div> */}
                     </div>
                 </div>

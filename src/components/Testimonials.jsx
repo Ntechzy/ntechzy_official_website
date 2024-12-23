@@ -1,11 +1,12 @@
 "use client"
 import AnimatedHeading from "@/components/shared/AnimatedHeading";
 import AnimatedStretchedHeading from "@/components/shared/AnimatedStretchedHeading";
+import { testimonials } from "@/data/Testimonials";
 import { motion } from "motion/react"
 import { useState } from 'react'
 
-const TestimonialsCard = ({ direction = "top", isCardHovered }) => {
-    console.log(direction, "is card hovered", isCardHovered)
+const TestimonialsCard = ({ direction = "top", isCardHovered, testmonial }) => {
+
     const animationVariants = {
         initial: {
             y: direction === "top" ? "0%" : "-100%",
@@ -31,14 +32,15 @@ const TestimonialsCard = ({ direction = "top", isCardHovered }) => {
             animate={isCardHovered ? "hovered" : "animate"}
         >
             <div>
-                <p>Tecko's remarkable of their efforts have truly distinguished us from the competition. We wholeheartedly give them a perfect 10/10 for their work."
+                <p>
+                    {testmonial.testimonial}
                 </p>
             </div>
             {/*profile*/}
             <div className={"flex justify-between"}>
                 <div>
-                    <p className="text-[12px] md:text-[14px] font-bold text-gray-500">CEO & Founder , Layers</p>
-                    <p className={"uppercase"}>DUY TRAN</p>
+                    <p className="text-[12px] md:text-[14px] font-bold text-gray-500">{testmonial.designation}, {testmonial.organization}</p>
+                    <p className={"uppercase"}>{testmonial.name}</p>
                 </div>
                 <div className={"w-10 h-10 bg-gray-200 rounded-full"}>
 
@@ -69,7 +71,7 @@ const Testimonials = () => {
                                 <p className={"font-bold"}>4.9/5</p>
                                 <p>⭐⭐⭐⭐⭐</p>
                             </div>
-                            <p className={"text-gray-500"}>Based on 24 reviews</p>
+                            <p className={"text-gray-500"}>Based on 50+ reviews</p>
                         </div>
                     </div>
                 </div>
@@ -83,16 +85,18 @@ const Testimonials = () => {
                             y: 0
                         }}
                     >
-                        <TestimonialsCard isCardHovered={isLeftCardHovered} />
-                        <TestimonialsCard isCardHovered={isLeftCardHovered} />
-                        <TestimonialsCard isCardHovered={isLeftCardHovered} />
-                        <TestimonialsCard isCardHovered={isLeftCardHovered} />
+                        {
+                            testimonials.slice(0, testimonials.length / 2).map((obj, i) => (
+                                <TestimonialsCard key={i} testmonial={obj} isCardHovered={isRightCardHovered} direction={"bottom"} />
+                            ))
+                        }
                     </motion.div>
                     <div className={"flex flex-col overflow-hidden gap-4"} onMouseEnter={() => setIsRightCardHovered(true)} onMouseLeave={() => setIsRightCardHovered(false)}>
-                        <TestimonialsCard isCardHovered={isRightCardHovered} direction={"bottom"} />
-                        <TestimonialsCard isCardHovered={isRightCardHovered} direction={"bottom"} />
-                        <TestimonialsCard isCardHovered={isRightCardHovered} direction={"bottom"} />
-                        <TestimonialsCard isCardHovered={isRightCardHovered} direction={"bottom"} />
+                        {
+                            testimonials.slice(((testimonials.length) / 2), testimonials.length).map((obj, i) => (
+                                <TestimonialsCard key={i} testmonial={obj} isCardHovered={isRightCardHovered} direction={"top"} />
+                            ))
+                        }
                     </div>
                 </div>
             </div>
