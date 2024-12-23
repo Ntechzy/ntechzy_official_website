@@ -13,8 +13,8 @@ const footerSlide = [
 ]
 
 const FooterSlider = () => {
-    const isMobile = window.innerWidth < 768;
-
+    const width = (100 / footerSlide.length)
+    console.log(width);
 
     const duplicateSlides = [...footerSlide, ...footerSlide]
     return (
@@ -31,7 +31,7 @@ const FooterSlider = () => {
                 }}
             >
                 {duplicateSlides.map((slide, index) => (
-                    <div key={index} className="flex-shrink-0" style={{ width: isMobile ? '65%' : `${100 / footerSlide.length}%` }}>
+                    <div key={index} className={`flex-shrink-0 w-[60%] md:w-${width}`}  >
                         <div className="flex items-center gap-2 justify-center h-full">
                             {/* {slide.icon} */}
                             {slide.icon}
