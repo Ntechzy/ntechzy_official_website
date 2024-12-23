@@ -13,7 +13,7 @@ export default function HeroSection() {
     return (
         <div className="h-auto w-full flex flex-col gap-8 bg-primary rounded-3xl my-12 p-4 md:p-10">
 
-            <div className="w-full bg-black text-white rounded-3xl p-6">
+            <div className="w-full bg-black text-white rounded-3xl md:p-6">
                 {/* First Hero Section */}
                 <section className="relative h-auto w-full overflow-hidden px-4 py-12 md:px-6 lg:px-8">
                     <div className="mx-auto max-w-7xl">
@@ -28,7 +28,7 @@ export default function HeroSection() {
                                             duration: 0.25,
                                             delay: i / 10,
                                         }}
-                                        className="max-w-4xl text-4xl font-bold tracking-tight sm:text-6xl md:text-8xl"
+                                        className="max-w-4xl text-[30px] tracking-tighter leading-tight font-bold md:tracking-tight sm:text-6xl md:text-8xl"
                                     >
                                         {el}{" "}
                                     </motion.span>
@@ -38,18 +38,18 @@ export default function HeroSection() {
                                 direction="up"
                                 className="pt-0 pb-5 flex-col flex justify-center space-y-0"
                             >
-                                <p className="max-w-2xl text-lg text-gray-400">
+                                <p className="max-w-2xl text-[14px] font-[600] md:text-lg text-gray-400">
                                     We revolutionize industries with dynamic digital solutions,
                                 </p>
-                                <p className="max-w-2xl text-lg text-gray-400">
+                                <p className="max-w-2xl text-[14px] font-[600] md:text-lg text-gray-400">
                                     tailored to meet contemporary demands and drive
                                 </p>
-                                <p className="max-w-2xl text-lg text-gray-400">
+                                <p className="max-w-2xl text-[14px] font-[600] md:text-lg text-gray-400">
                                     impactful transformations for businesses of all sectors.
                                 </p>
                             </TextFade>
 
-                            <div className="flex md:flex-row flex-col w-full items-center justify-between ">
+                            <div className="flex md:flex-row flex-col w-full md:items-center justify-between ">
                                 <div className="flex md:flex-row flex-col  md:items-center gap-6">
                                     <Link href={'#'} className="w-fit px-8 py-2 rounded-lg bg-white hover:bg-secondary flex items-center gap-x-2 justify-center text-primary hover:text-white">
                                         Get Started
@@ -60,8 +60,8 @@ export default function HeroSection() {
                                     </div>
                                 </div>
 
-                                <div>
-                                    <img src="/hexagon.png" alt="" className="w-full h-full object-cover" />
+                                <div className="w-full flex items-end justify-end ">
+                                    <img src="/hexagon.png" alt="" className="md:w-auto  h-full object-cover" />
                                 </div>
                             </div>
                         </div>
