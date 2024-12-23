@@ -16,7 +16,7 @@ const AnimatedBall = ()=>{
     return (
         <div className={" flex justify-center items-center cursor-pointer relative w-fit"}>
             {/*blue ball*/}
-            <div className={"w-[200px] h-[200] md:w-[400px] md:h-[400px] bg-secondary rounded-full flex justify-center items-center relative group hover:text-black transition-all duration-1000 overflow-hidden"}>
+            <div className={"w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-secondary rounded-full flex justify-center items-center relative group hover:text-black transition-all duration-1000 overflow-hidden"}>
                 <p className={"text-[24px] md:text-[48px] font-[400] z-[10]"}>
                     Start a project
                 </p>
