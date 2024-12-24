@@ -37,7 +37,7 @@ const AnimatedHeading2 = ({ topBarTitle, title, subTitle, polyType = "green-poly
             {/* Conditionally render the image if imageSrc is passed */}
             {imageSrc && (
                 <div className="mt-4">
-                    <img src={imageSrc} alt="Optional visual" className="max-w-full h-auto" />
+                    <img src={imageSrc} alt="Optional visual" className="md:max-w-full w-[90%] m-auto rounded-2xl h-auto" />
                 </div>
             )}
         </div>

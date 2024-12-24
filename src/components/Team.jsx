@@ -9,7 +9,7 @@ const TeamCard = () => {
         <motion.div
             initial={{ display: "hidden", opacity: 0, transform: "translateY(4rem)", transition: "all 1s" }}
             whileInView={{
-                opacity: 1,
+                    opacity: 1,
                 transition: 'all 1s',
                 transform: 'translateY(-4rem)',
             }}

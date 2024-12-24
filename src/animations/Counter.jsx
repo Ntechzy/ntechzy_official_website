@@ -13,7 +13,7 @@ export default function Counter({ value }) {
     }, []);
 
     return (
-        <motion.div className="text-[20px] md:text-[48px] font-bold"  initial={{ opacity: 0 }} whileInView={{opacity: 1}} viewport={{once: true}}>
+        <motion.div className="text-[25px] md:text-[48px] font-bold"  initial={{ opacity: 0 }} whileInView={{opacity: 1}} viewport={{once: true}}>
             {rounded}
         </motion.div>
     );
