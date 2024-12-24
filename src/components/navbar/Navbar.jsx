@@ -10,7 +10,7 @@ import useScrollPosition from '@/hooks/useScrollPosition';
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [activeSubmenu, setActiveSubmenu] = useState(null);
-
+    const [selected, setSelected] = useState('Home')
     const scrollPosition = useScrollPosition()
 
     // Handle body scroll when menu is open
@@ -38,14 +38,17 @@ const Navbar = () => {
             name: "Blogs", href: "/blogs"
         },
         {
-            name: "Services",
-            submenu: [
-                { name: "Website development", href: "/services/web" },
-                { name: "App development", href: "/services/app" },
-                { name: "Students assignment support", href: "/services/assignment" },
-                { name: "Research and report", href: "/services/research" },
-            ],
+            name: "Team", href: "/team"
         },
+        // {
+        //     name: "Services",
+        //     submenu: [
+        //         { name: "Website development", href: "/services/web" },
+        //         { name: "App development", href: "/services/app" },
+        //         { name: "Students assignment support", href: "/services/assignment" },
+        //         { name: "Research and report", href: "/services/research" },
+        //     ],
+        // },
         { name: "Contact", href: "/contact" },
     ];
 
@@ -98,9 +101,10 @@ const Navbar = () => {
                                 ) : (
                                     <Link
                                         href={item.href}
+                                        onClick={() => setSelected(item.name)}
                                         className="text-white hover:text-blue-500 transition-colors"
                                     >
-                                        {item.name}
+                                        {item.name === selected && <span className='blue-polygon mr-1' />} {item.name}
                                     </Link>
                                 )}
                             </li>

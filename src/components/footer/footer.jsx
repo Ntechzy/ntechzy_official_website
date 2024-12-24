@@ -139,7 +139,7 @@ export function Footer() {
                 <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                 <ul className="space-y-3 text-gray-400">
                   {quickLinks.map((item, index) => (
-                    <li><Link key={index} href={item.path} className="hover:text-white">{item.name}</Link></li>
+                    <li key={index} ><Link href={item.path} className="hover:text-white">{item.name}</Link></li>
                   ))}
                 </ul>
               </div>

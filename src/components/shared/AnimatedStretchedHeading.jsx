@@ -3,11 +3,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const AnimatedStretchedHeading = ({ titles = [], topBarTitle, cls = "blue-polygon " }) => {
-    console.log(titles);
+  
 
     return (
         <div className={"flex flex-col items-start gap-10 md:gap-2"}>
-            {/* Top bar title */}
+        
            {topBarTitle && <p className={`${cls} flex items-center gap-2 font-[600] text-xs md:text-base ml-2 md:ml-4`}>
                 {topBarTitle}
             </p>

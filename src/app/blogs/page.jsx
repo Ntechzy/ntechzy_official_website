@@ -15,7 +15,7 @@ const page = () => {
             </div>
 
             <FeaturedBlog />
-            <PostList />
+            <PostList /> 
         </div>
     )
 }
