@@ -2,6 +2,7 @@ import React from 'react'
 import AnimatedStretchedHeading from './shared/AnimatedStretchedHeading'
 import DirectionAwareButton from './shared/Button'
 import Carousel from './shared/Carousel'
+import Link from 'next/link'
 
 const Blog = () => {
     return (
@@ -14,9 +15,9 @@ const Blog = () => {
                         cls={'green-polygon'}
                     />
                 </div>
-                <div className='mb-4'>
+                <Link href={'/blogs'} className='mb-4'>
                     <DirectionAwareButton title={'See all article'} color={"bg-transprent"} hov_color={"bg-secondary"} border='border-[1px] border-white' />
-                </div>
+                </Link>
             </div>
 
             <div>

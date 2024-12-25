@@ -20,11 +20,12 @@ const slides = [
     { icon: '/logo/16.png' },
 ]
 
-const Slider = () => {
+const Slider = ({ qyt = "single" }) => {
     const duplicateSlides = [...slides, ...slides]
 
     return (
-        <div className="relative h-full overflow-hidden py-12 w-full">
+        <div className="relative h-full overflow-hidden py-12 w-full flex flex-col gap-10">
+
             <motion.div
                 className="flex gap-8"
                 animate={{
@@ -37,7 +38,7 @@ const Slider = () => {
                 }}
             >
                 {duplicateSlides.map((slide, index) => (
-                    <div key={index} className="flex-shrink-0" style={{ width: `${100 / (slides.length/3)}%` }}>
+                    <div key={index} className="flex-shrink-0" style={{ width: `${100 / (slides.length / 3)}%` }}>
                         <div className="flex bg-white items-center justify-center h-full ">
                             {/* {slide.icon} */}
                             <img className='' src={slide.icon} alt="" />
@@ -45,7 +46,31 @@ const Slider = () => {
                     </div>
                 ))}
             </motion.div>
-        </div>
+
+            {
+                qyt == "both" &&
+                <motion.div
+                    className="flex gap-8"
+                    animate={{
+                        x: ["-100%", "0"],
+                        transition: {
+                            ease: 'linear',
+                            duration: 25,
+                            repeat: Infinity,
+                        }
+                    }}
+                >
+                    {duplicateSlides.map((slide, index) => (
+                        <div key={index} className="flex-shrink-0" style={{ width: `${100 / (slides.length / 3)}%` }}>
+                            <div className="flex bg-white items-center justify-center h-full ">
+                                {/* {slide.icon} */}
+                                <img className='' src={slide.icon} alt="" />
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
+            }
+        </div >
     )
 }
 
