@@ -39,16 +39,7 @@ const Navbar = () => {
         },
         {
             name: "Team", href: "/team"
-        },
-        // {
-        //     name: "Services",
-        //     submenu: [
-        //         { name: "Website development", href: "/services/web" },
-        //         { name: "App development", href: "/services/app" },
-        //         { name: "Students assignment support", href: "/services/assignment" },
-        //         { name: "Research and report", href: "/services/research" },
-        //     ],
-        // },
+        }, 
         { name: "Contact", href: "/contact" },
     ];
 

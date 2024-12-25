@@ -11,6 +11,7 @@ const slides = [
     { icon: '/slide7.webp' },
     { icon: '/slide8.png' },
     { icon: '/slide9.png' },
+    { icon: '/gcg.jpg' },
 ]
 
 const Slider = () => {
@@ -24,7 +25,7 @@ const Slider = () => {
                     x: ['0%', '-100%'],
                     transition: {
                         ease: 'linear',
-                        duration: 15,
+                        duration: 25,
                         repeat: Infinity,
                     }
                 }}

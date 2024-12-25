@@ -1,11 +1,36 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { SlideData } from '@/data/slideData';
+import client, { urlFor } from '../../../lib/sanity';
+import Link from 'next/link';
 
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [data, setData] = useState(SlideData);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        const getData = async () => {
+            const query = `
+            *[_type=="post"] | order(_createdAt desc)[0...3] {
+              "currentSlug": slug.current,
+              title, 
+              mainImage,
+              short_description,
+              categories,
+              publishedAt
+            }`;
+
+            try {
+                const fetchedData = await client.fetch(query);
+                setData(fetchedData); 
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        getData();
+    }, []);
+
 
     const nextSlide = () => {
         if (currentSlide < data.length - 4) {
@@ -16,8 +41,6 @@ const Carousel = () => {
             setCurrentSlide(currentSlide + 1);
         }
     };
-
-
 
     const prevSlide = () => {
         if (currentSlide > 0) {
@@ -41,28 +64,27 @@ const Carousel = () => {
                         className="w-[32%] group flex flex-col overflow-hidden flex-shrink-0"
                     >
                         <div className="relative rounded-2xl overflow-hidden">
-                            <img src={slide.image} alt="" className="w-full object-cover group-hover:scale-[1.05] ease-linear transition duration-500" />
+                            <img src={urlFor(slide.mainImage).url()} alt="" className="h-[276px] w-full object-cover group-hover:scale-[1.05] ease-linear transition duration-500" />
                             <div className='absolute z-[999] group-hover:inset-0 group-hover:transition-all group-hover:ease-linear group-hover:duration-700  h-full flex items-center justify-center'>
 
-                                <button
-                                    onClick={prevSlide}
+                                <Link href={`/blogs/${slide.currentSlug}`}
                                     className=" cursor-pointer bg-secondary -rotate-[40deg] hover:bg-white hover:text-black hover:transition hover:duration-200 hover:ease-in-out  p-4  rounded-full shadow-md hover:shadow-lg text-white "
                                 >
                                     <FaArrowRight />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                         <div className="">
-                            <h3 className="text-[12px] text-secondary uppercase mt-[25px] font-semibold  leading-[1.33]">{slide.title}</h3>
+                            <h3 className="text-[12px] text-secondary uppercase mt-[25px] font-semibold  leading-[1.33]">{slide.categories || "Technology"}</h3>
                             <h2 className="text-[24px] font-semibold mt-[25px] leading-[1.33] hover:text-secondary transition-all ease-in-out duration-500 ">
-                                Driving Innovation: Exploring the World of Autonomous Vehicles
+                                {slide.title}
                             </h2>
                             <p className='mt-[25px]  leading-[1.33]'>
-                                Discover the Latest Innovations and Opportunities Shaping the Future of[…]
+                                {slide.short_description.slice(0, 71)}  [...]
                             </p>
                             <div className='pt-[20px] mt-[20px] border-t-2 border-t-[#2B303B]'>
                                 <p className={`green-polygon flex items-center gap-2 font-[600] text-xs md:text-base `}>
-                                    April 26, 2024
+                                    {slide.publishedAt}
                                 </p>
                             </div>
                         </div>
@@ -73,12 +95,14 @@ const Carousel = () => {
             <div className="flex gap-5 mt-[30px] justify-center">
                 <button
                     onClick={prevSlide}
+                    disabled={data.length < 4}
                     className="p-4 cursor-pointer bg-gradient-to-l from-[#ffffff3e] to-[#ffffff00] rounded-full shadow-md hover:shadow-lg text-white "
                 >
                     <FaArrowLeft />
                 </button>
                 <button
                     onClick={nextSlide}
+                    disabled={data.length < 4}
                     className="p-4 cursor-pointer bg-gradient-to-l from-[#ffffff3e] to-[#ffffff00] rounded-full shadow-md hover:shadow-lg text-white "
                 >
                     <FaArrowRight />

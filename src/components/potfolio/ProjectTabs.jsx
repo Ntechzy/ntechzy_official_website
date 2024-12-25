@@ -48,14 +48,14 @@ const ProjectTabs = () => {
                 }
             </div>
 
-            <div className='flex  gap-4 flex-wrap overflow-hidden '>
+            <div className='flex gap-4 flex-wrap overflow-hidden '>
                 {
                     data.length > 0 ? data.map((obj, i) => (
                         <div
                             key={i}
                             className="md:w-[calc(33%-10px)] sm:w-[calc(50%-10px)] w-full group flex flex-col   flex-shrink-0"
                         >
-                            <div className="relative rounded-2xl w-[414px]  object-contain h-[275px]   overflow-hidden">
+                            <div className="relative rounded-2xl md:w-[414px]  object-contain h-[275px]   overflow-hidden">
                                 <img src={obj.image} alt="" className="w-full h-full object-cover group-hover:scale-[1.05] ease-linear transition duration-500" />
                                 <div className='absolute z-[999] group-hover:inset-0 group-hover:transition-all group-hover:ease-linear group-hover:duration-700 group-hover:animate-scale w-full h-full flex items-center justify-center'>
 
