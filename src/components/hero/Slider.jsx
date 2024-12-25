@@ -2,16 +2,22 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const slides = [
-    { icon: '/slide1.png' },
-    { icon: '/slide2.png' },
-    { icon: '/slide3.png' },
-    { icon: '/slide4.jpg' },
-    { icon: '/slide5.png' },
-    { icon: '/slide6.png' },
-    { icon: '/slide7.webp' },
-    { icon: '/slide8.png' },
-    { icon: '/slide9.png' },
-    { icon: '/gcg.jpg' },
+    { icon: '/logo/1.png' },
+    { icon: '/logo/2.png' },
+    { icon: '/logo/3.png' },
+    { icon: '/logo/4.png' },
+    { icon: '/logo/5.png' },
+    { icon: '/logo/6.png' },
+    { icon: '/logo/7.png' },
+    { icon: '/logo/8.png' },
+    { icon: '/logo/9.png' },
+    { icon: '/logo/10.png' },
+    { icon: '/logo/11.png' },
+    { icon: '/logo/12.png' },
+    { icon: '/logo/13.png' },
+    { icon: '/logo/14.png' },
+    { icon: '/logo/15.png' },
+    { icon: '/logo/16.png' },
 ]
 
 const Slider = () => {
@@ -31,8 +37,8 @@ const Slider = () => {
                 }}
             >
                 {duplicateSlides.map((slide, index) => (
-                    <div key={index} className="flex-shrink-0" style={{ width: `${100 / slides.length}%` }}>
-                        <div className="flex items-center justify-center h-full ">
+                    <div key={index} className="flex-shrink-0" style={{ width: `${100 / (slides.length/3)}%` }}>
+                        <div className="flex bg-white items-center justify-center h-full ">
                             {/* {slide.icon} */}
                             <img className='' src={slide.icon} alt="" />
                         </div>

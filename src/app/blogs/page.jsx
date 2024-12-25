@@ -4,8 +4,7 @@ import React from 'react'
 import client from '../../../lib/sanity'
 
 const page = async () => {
-    const data = await getData()
-    console.log(data);
+    const data = await getData() 
 
     return (
         <div className='bg-black p-[15px] md:p-[48px] mx-[15px] md:mx-0 my-4 rounded-[24px]'>
@@ -21,7 +20,11 @@ const page = async () => {
             <FeaturedBlog data={data[0]} />
 
 
-            <PostList />
+            {
+                data.map((obj, i) => (
+                    <PostList key={i} data={obj} />
+                ))
+            }
         </div>
     )
 }

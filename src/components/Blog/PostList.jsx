@@ -1,8 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { urlFor } from '../../../lib/sanity';
+import Link from 'next/link';
 
-const PostList = () => {
+const PostList = ({ data }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [imageAnimationComplete, setImageAnimationComplete] = useState(false);
 
@@ -20,7 +22,7 @@ const PostList = () => {
                 <div className="md:hidden flex">
                     <img
                         className="h-full w-full object-cover bg-no-repeat"
-                        src="https://demo.7iquid.com/tecko/wp-content/uploads/elementor/thumbs/Driving-Innovation-Exploring-the-World-of-Autonomous-Vehicles-1-qxa2vvzboia8zbmysfk7kucd6hipwj6a37szp3wwwo.webp"
+
                         alt=""
                     />
                 </div>
@@ -28,7 +30,7 @@ const PostList = () => {
                 <motion.div
                     className="hidden md:block absolute top-0 left-0 w-full h-full"
                     initial={{ opacity: 0, height: 0 }}
-                    animate={isHovered ? { opacity: 1, height: '100%' } : { opacity: 0, height: 0 }}
+                    animate={isHovered ? { opacity: 1, height: '100%', zIndex: '10' } : { opacity: 0, height: 0 }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
                     onAnimationComplete={() => {
                         if (!isHovered) {
@@ -38,9 +40,12 @@ const PostList = () => {
                 >
                     <img
                         className="h-full w-full object-cover bg-no-repeat"
-                        src="https://demo.7iquid.com/tecko/wp-content/uploads/elementor/thumbs/Driving-Innovation-Exploring-the-World-of-Autonomous-Vehicles-1-qxa2vvzboia8zbmysfk7kucd6hipwj6a37szp3wwwo.webp"
+                        src={urlFor(data.mainImage)}
                         alt=""
                     />
+                    <div className='z-[999] flex justify-center items-center absolute top-0 w-full h-full'>
+                        <Link className='text-black font-[800] hover:text-white hover:transition ease-in delay-100 text-[14px] p-2 rounded-md bg-white hover:bg-secondary' href={`/blogs/${data.slug}`} >Continue Reading </Link>
+                    </div>
                 </motion.div>
 
                 <div
@@ -53,12 +58,10 @@ const PostList = () => {
 
                     <div className="md:w-[70%] text-[21px] md:text-[32px]">
                         <h2 className="font-[600]">
-                            Immersive Experiences: The Power of VR in Entertainment
+                            {data.title}
                         </h2>
                         <p className="mt-[15px] text-[16px] leading-[1.5]">
-                            Each product originates from a combination of many materials and labor.
-                            During manufacturing, direct materials often make up a large portion of
-                            the overall cost structure. Identifying and managing it not only affects
+                            {data.short_description}
                         </p>
                     </div>
 
@@ -66,7 +69,7 @@ const PostList = () => {
                         <div className='green-polygon mr-2'>
 
                         </div>
-                        April 26, 2024</div>
+                        {data.publishedAt}</div>
                 </div>
             </div>
         </div>
