@@ -4,16 +4,16 @@ import LeadForm from "@/components/shared/LeadForm";
 import DirectionAwareButton from "@/components/shared/Button";
 
 
-const Contact = ()=>{
+const Contact = () => {
     const contactDetails = {
-        contactCard:[
+        contactCard: [
             {
-                title:"Wanna join our teams?",
-                content:"career@ntechzy.in"
+                title: "Wanna join our teams?",
+                content: "career@ntechzy.in"
             },
             {
-                title:"Call us on",
-                content:"(+23) 5535 68 68"
+                title: "Call us on",
+                content: "+91 70685951928"
             },
 
         ]
@@ -21,12 +21,12 @@ const Contact = ()=>{
 
     return (
         <div className={"pt-10 md:pt-20 p-2"}>
-           {/*banner */}
+            {/*banner */}
             <div className={"p-10 bg-primary rounded-[24px] flex flex-col md:flex-row gap-10 w-full"}>
                 <div className={"flex flex-col items-start gap-10 flex-1 order-2 md:order-1"}>
-                    <AnimatedStretchedHeading titles={["Let's talk!"]} topBarTitle={"Contact"} cls={"green-polygon"}/>
+                    <AnimatedStretchedHeading titles={["Let's talk!"]} topBarTitle={"Contact"} cls={"green-polygon"} />
                     <div className={"p-4 flex flex-col md:flex-row gap-10 w-full  justify-between"}>
-                        {contactDetails.contactCard.map((item,i)=> (
+                        {contactDetails.contactCard.map((item, i) => (
                             <div key={i}>
                                 <p className={"text-[14px] md:text-[16px] text-[#7E8695] font-[500]"}>{item.title}</p>
                                 <p className={"text-[16px] md:text-[24px] text-[#D9DCE3] font-[600]"}>{item.content}</p>
@@ -47,26 +47,26 @@ const Contact = ()=>{
                     </div>
                 </div>
                 <div className={"flex-1 flex justify-center md:justify-end order-1 md:order-2"}>
-                    <AnimatedBall/>
+                    <AnimatedBall />
                 </div>
             </div>
             {/*form*/}
             <div className={"px-5 md:px-10 py-12 md:py-24 flex flex-col md:flex-row gap-10"}>
                 <div className={"flex flex-col gap-5 flex-1"}>
-                    <AnimatedStretchedHeading titles={["Your gateway to seamless" , "communication"]} topBarTitle={"Contact Us"}/>
+                    <AnimatedStretchedHeading titles={["Your gateway to seamless", "communication"]} topBarTitle={"Contact Us"} />
                     <p className={"text-[16px] font-[400] leading-[1.55em] text-[#7E8695] p-4"}>
                         Have questions, feedback, or inquiries? Fill out the form below to get in touch with us. Our team is here to assist you and will get back to you as soon as possible. Alternatively, you can reach out to us directly via phone or email. We look forward to hearing from you!
                     </p>
                 </div>
                 <div className={"flex-1"}>
-                    <LeadForm/>
+                    <LeadForm />
                 </div>
             </div>
             {/*our space*/}
             <div className={"flex gap-10 p-2"}>
                 <div className={"bg-white rounded-[24px] p-10 w-full flex flex-col md:flex-row gap-10"}>
                     <div className={"text-black flex flex-col items-start gap-5 flex-1"}>
-                        <AnimatedStretchedHeading titles={["Where you can", "find us?"]} topBarTitle={"Our Space"}/>
+                        <AnimatedStretchedHeading titles={["Where you can", "find us?"]} topBarTitle={"Our Space"} />
                         <p className={"text-[#474E5C] text-[16px] font-[500] leading-[1.5em] p-4"}>
                             Our location offers a convenient and
                             welcoming space for visitors and clients
@@ -77,7 +77,7 @@ const Contact = ()=>{
                     <div className={"flex-1"}>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.456752311331!2d80.29845457525582!3d26.47323467691193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c390bc50eb861%3A0xcb92eaeb9f752362!2sNTECHZY%20PVT.%20LTD!5e0!3m2!1sen!2sin!4v1734941097083!5m2!1sen!2sin"
-                            className={"w-[100%] h-[450px]"}  style={{border:0}} allowFullScreen="" loading="lazy"
+                            className={"w-[100%] h-[450px]"} style={{ border: 0 }} allowFullScreen="" loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>

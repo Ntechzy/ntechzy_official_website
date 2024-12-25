@@ -1,9 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { SlideData } from '@/data/slideData';
-import client, { urlFor } from '../../../lib/sanity';
+import { SlideData } from '@/data/slideData'; 
 import Link from 'next/link';
+import client from '../../../lib/sanity';
 
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);

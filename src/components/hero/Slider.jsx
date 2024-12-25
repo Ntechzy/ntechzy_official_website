@@ -40,7 +40,7 @@ const Slider = ({ qyt = "single" }) => {
                 {duplicateSlides.map((slide, index) => (
                     <div key={index} className="flex-shrink-0" style={{ width: `${100 / (slides.length / 3)}%` }}>
                         <div className="flex bg-white items-center justify-center h-full ">
-                            {/* {slide.icon} */}
+                           
                             <img className='' src={slide.icon} alt="" />
                         </div>
                     </div>

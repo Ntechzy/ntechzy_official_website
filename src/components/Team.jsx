@@ -3,13 +3,13 @@ import AnimatedHeading from "@/components/shared/AnimatedHeading";
 import { motion } from 'motion/react';
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
-const TeamCard = () => {
+const TeamCard = () => { 
 
     return (
         <motion.div
             initial={{ display: "hidden", opacity: 0, transform: "translateY(4rem)", transition: "all 1s" }}
             whileInView={{
-                    opacity: 1,
+                opacity: 1,
                 transition: 'all 1s',
                 transform: 'translateY(-4rem)',
             }}
