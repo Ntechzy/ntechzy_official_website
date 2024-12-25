@@ -19,7 +19,6 @@ export default function Home() {
       <Team />
       <Testimonials />
       <FAQ />
-
     </div>
 
   );
