@@ -37,6 +37,7 @@ export default function RootLayout({ children }) {
         <Footer />
       </SoothingScroll>
         <Toaster/>
+      <div id={"modal-root"}></div>
       </body>
     </html>
   );

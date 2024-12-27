@@ -5,6 +5,7 @@ import AnimatedHeading from "@/components/shared/AnimatedHeading";
 import client from "@/lib/sanity";
 import toast from "react-hot-toast";
 import validator from 'validator'
+import ReactDOM from "react-dom";
 
 
 const JobOpenings = () => {
@@ -160,115 +161,134 @@ const JobOpenings = () => {
 
             {/* Modal */}
             {isModalOpen && (
-                <div
-                    className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-[9999]"
-                    onClick={handleCloseModal}
-                >
+                ReactDOM.createPortal(
                     <div
-                        className="bg-white rounded-lg p-6 w-11/12 sm:w-3/4 md:w-1/2"
-                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                        className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-[9999]"
+                        onClick={handleCloseModal}
                     >
-                        {currentStep === 1 ? (
-                            // Step 1: Job Details
-                            <div>
-                                <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                                    {currentJob?.title}
-                                </h3>
-                                <p className="text-gray-600 mb-4">{currentJob?.description}</p>
-                                <div className="text-gray-500 mb-4">{currentJob?.location}</div>
-                                <button
-                                    onClick={handleNextStep}
-                                    className="mt-4 inline-block bg-primary text-white py-2 px-4 rounded-md text-center hover:bg-secondary"
-                                >
-                                    Next
-                                </button>
-                            </div>
-                        ) : (
-                            // Step 2: Application Form
-                            <div>
-                                <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                                    Apply for {currentJob?.title}
-                                </h3>
-                                <form onSubmit={handleModalDataSubmission}>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700">*Name</label>
-                                        <input
-                                            type="text"
-                                            name={"name"}
-                                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                            placeholder="Enter your full name"
-                                            required={true}
-                                            value={modalData.name}
-                                            onChange={(e)=>setModalData((prev)=>({...prev , [e.target.name]:e.target.value}))}
-                                        />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700">*Email</label>
-                                        <input
-                                            type="email"
-                                            name={"email"}
-                                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                            placeholder="Enter your email"
-                                            required={true}
-                                            value={modalData.email}
-                                            onChange={(e)=>setModalData((prev)=>({...prev , [e.target.name]:e.target.value}))}
-                                        />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700">*Phone</label>
-                                        <input
-                                            type="text"
-                                            name={"phone"}
-                                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                            placeholder="Enter your phone number"
-                                            required={true}
-                                            value={modalData.phone}
-                                            onChange={(e)=>setModalData((prev)=>({...prev , [e.target.name]:e.target.value}))}
-                                        />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700">*Resume</label>
-                                        <input
-                                            type="file"
-                                            name={"resume"}
-                                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                            placeholder="Upload Your resume"
-                                            accept={".pdf,.doc,.docx"}
-                                            required={true}
-                                            // value={modalData.resume}
-                                            onChange={(e)=>setModalData((prev)=>({...prev , [e.target.name]:e.target.files[0]}))}
-                                        />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700">Cover Letter</label>
-                                        <textarea
-                                            name={"coverLetter"}
-                                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                            rows="4"
-                                            placeholder="Tell us why you'd be a great fit for this role"
-                                            value={modalData.coverLetter}
-                                            onChange={(e)=>setModalData((prev)=>({...prev , [e.target.name]:e.target.value}))}
-                                        ></textarea>
-                                    </div>
-                                    <div className="flex flex-col md:flex-row gap-5 justify-between">
-                                        <button
-                                            onClick={handleCloseModal}
-                                            className="inline-block bg-gray-500 text-white py-2 px-4 rounded-md text-sm md:text-base"
-                                        >
-                                            Cancel
-                                        </button>
-                                        <button
-                                            type="submit"
-                                            className="inline-block bg-primary text-white py-2 px-4 rounded-md text-sm md:text-base"
-                                        >
-                                            Submit Application
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        )}
-                    </div>
-                </div>
+                        <div
+                            className="bg-white rounded-lg p-6 w-11/12 sm:w-3/4 md:w-1/2"
+                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                        >
+                            {currentStep === 1 ? (
+                                // Step 1: Job Details
+                                <div>
+                                    <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                                        {currentJob?.title}
+                                    </h3>
+                                    <p className="text-gray-600 mb-4">{currentJob?.description}</p>
+                                    <div className="text-gray-500 mb-4">{currentJob?.location}</div>
+                                    <button
+                                        onClick={handleNextStep}
+                                        className="mt-4 inline-block bg-primary text-white py-2 px-4 rounded-md text-center hover:bg-secondary"
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            ) : (
+                                // Step 2: Application Form
+                                <div>
+                                    <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                                        Apply for {currentJob?.title}
+                                    </h3>
+                                    <form onSubmit={handleModalDataSubmission}>
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700">*Name</label>
+                                            <input
+                                                type="text"
+                                                name={"name"}
+                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                                placeholder="Enter your full name"
+                                                required={true}
+                                                value={modalData.name}
+                                                onChange={(e) => setModalData((prev) => ({
+                                                    ...prev,
+                                                    [e.target.name]: e.target.value
+                                                }))}
+                                            />
+                                        </div>
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700">*Email</label>
+                                            <input
+                                                type="email"
+                                                name={"email"}
+                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                                placeholder="Enter your email"
+                                                required={true}
+                                                value={modalData.email}
+                                                onChange={(e) => setModalData((prev) => ({
+                                                    ...prev,
+                                                    [e.target.name]: e.target.value
+                                                }))}
+                                            />
+                                        </div>
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700">*Phone</label>
+                                            <input
+                                                type="text"
+                                                name={"phone"}
+                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                                placeholder="Enter your phone number"
+                                                required={true}
+                                                value={modalData.phone}
+                                                onChange={(e) => setModalData((prev) => ({
+                                                    ...prev,
+                                                    [e.target.name]: e.target.value
+                                                }))}
+                                            />
+                                        </div>
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700">*Resume</label>
+                                            <input
+                                                type="file"
+                                                name={"resume"}
+                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                                placeholder="Upload Your resume"
+                                                accept={".pdf,.doc,.docx"}
+                                                required={true}
+                                                // value={modalData.resume}
+                                                onChange={(e) => setModalData((prev) => ({
+                                                    ...prev,
+                                                    [e.target.name]: e.target.files[0]
+                                                }))}
+                                            />
+                                        </div>
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700">Cover Letter</label>
+                                            <textarea
+                                                name={"coverLetter"}
+                                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                                rows="4"
+                                                placeholder="Tell us why you'd be a great fit for this role"
+                                                value={modalData.coverLetter}
+                                                onChange={(e) => setModalData((prev) => ({
+                                                    ...prev,
+                                                    [e.target.name]: e.target.value
+                                                }))}
+                                            ></textarea>
+                                        </div>
+                                        <div className="flex flex-col md:flex-row gap-5 justify-between">
+                                            <button
+                                                onClick={handleCloseModal}
+                                                className="inline-block bg-gray-500 text-white py-2 px-4 rounded-md text-sm md:text-base"
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                type="submit"
+                                                className="inline-block bg-primary text-white py-2 px-4 rounded-md text-sm md:text-base"
+                                            >
+                                                Submit Application
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            )}
+                        </div>
+                    </div>,
+                    document.getElementById("modal-root")
+                )
+
             )}
         </section>
     );

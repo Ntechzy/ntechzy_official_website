@@ -1,64 +1,52 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
-const SoothingScroll = ({ children }) => {
+const SmoothScrollFramerMotion = ({ children }) => {
+    const controls = useAnimation();
+    const [scrollY, setScrollY] = useState(0);
+
     useEffect(() => {
-        let scrollY = window.scrollY;
-        let ticking = false;
-        let isScrolling = false;
-        let smoothScrollTimeout = null;
+        console.log('SmoothScrollFramerMotion mounted');
 
-        // A function to apply the smooth scroll behavior
-        const smoothScroll = () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    // Smooth scroll logic
-                    window.scrollTo({
-                        top: scrollY,
-                        behavior: "smooth" // Smooth scroll on each scroll position update
-                    });
-                    ticking = false;
-                });
-                ticking = true;
-            }
+        const handleWheel = (event) => {
+            console.log('Mouse Wheel Scrolling...');
+
+            const newScrollY = scrollY + event.deltaY;
+
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const clampedScrollY = Math.max(0, Math.min(newScrollY, maxScroll));
+
+            setScrollY(clampedScrollY);
+
+            controls.start({
+                y: -clampedScrollY,
+                transition: {
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 30
+                }
+            });
         };
 
-        const handleScroll = () => {
-            console.log("Scrolling...");
-            scrollY = window.scrollY; // Get current scroll position
-            if (!isScrolling) {
-                isScrolling = true;
-
-                // Reset the timeout when the user scrolls
-                clearTimeout(smoothScrollTimeout);
-
-                // Trigger smooth scrolling
-                smoothScroll();
-
-                // Set a timeout for continuing the scroll animation for 1 second
-                smoothScrollTimeout = setTimeout(() => {
-                    isScrolling = false;
-                    smoothScroll(); // Continue the smooth scroll for 1 second after stop
-                }, 2000); // 1-second delay after scroll stops
-            }
-        };
-
-        // Listen to the scroll event
-        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("wheel", handleWheel, { passive: true });
 
         // Cleanup the event listener
         return () => {
-            window.removeEventListener("scroll", handleScroll);
-            clearTimeout(smoothScrollTimeout); // Clear the timeout if the component is unmounted
+            window.removeEventListener("wheel", handleWheel);
         };
-    }, []);
+    }, [scrollY, controls]);
 
     return (
-        <div style={{ height: "100vh" }}>
+        <motion.div
+            animate={controls}
+            initial={{ y: 0 }}
+            style={{ height: "100vh"}}
+        >
             {children}
-        </div>
+        </motion.div>
     );
 };
 
-export default SoothingScroll;
+export default SmoothScrollFramerMotion;
