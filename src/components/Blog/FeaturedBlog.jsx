@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { urlFor } from '../../../lib/sanity'
+import { urlFor } from '@/lib/sanity'
 
 const FeaturedBlog = ({ data }) => {
 

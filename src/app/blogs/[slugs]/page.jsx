@@ -1,7 +1,7 @@
 import React from 'react'
-import client, { urlFor } from '../../../../lib/sanity';
+import client, { urlFor } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
-import { components } from '../../../../lib/sanityComponent';
+import { components } from '@/lib/sanityComponent';
 
 const fetchData = async (id) => {
 

@@ -1,49 +1,61 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
 
-const SoothingScroll = ({children}) => {
-
+const SoothingScroll = ({ children }) => {
     useEffect(() => {
-        const handleWheel = (event) => {
-            event.preventDefault(); // Prevent native scroll behavior
+        let scrollY = window.scrollY;
+        let ticking = false;
+        let isScrolling = false;
+        let smoothScrollTimeout = null;
 
-            const direction = event.deltaY; // Detect scrolling direction
-            const start = window.scrollY; // Get current scroll position
-            const duration = 50; // Scroll duration in ms
-            const startTime = performance.now();
-
-            const animateScroll = (currentTime) => {
-                const timeElapsed = currentTime - startTime;
-                const progress = Math.min(timeElapsed / duration, 1);
-
-                // Ease-in-out formula for smooth scroll animation
-                const easeInOutQuad = (t) => {
-                    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-                };
-
-                const distance = direction * easeInOutQuad(progress); // Calculate scroll distance based on the direction
-                window.scrollTo(0, start + distance);
-
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animateScroll); // Continue animation until the duration is complete
-                }
-            };
-
-            requestAnimationFrame(animateScroll); // Start smooth scroll animation
+        // A function to apply the smooth scroll behavior
+        const smoothScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // Smooth scroll logic
+                    window.scrollTo({
+                        top: scrollY,
+                        behavior: "smooth" // Smooth scroll on each scroll position update
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
-        // Attach wheel event listener
-        window.addEventListener("wheel", handleWheel, { passive: false });
+        const handleScroll = () => {
+            console.log("Scrolling...");
+            scrollY = window.scrollY; // Get current scroll position
+            if (!isScrolling) {
+                isScrolling = true;
 
+                // Reset the timeout when the user scrolls
+                clearTimeout(smoothScrollTimeout);
+
+                // Trigger smooth scrolling
+                smoothScroll();
+
+                // Set a timeout for continuing the scroll animation for 1 second
+                smoothScrollTimeout = setTimeout(() => {
+                    isScrolling = false;
+                    smoothScroll(); // Continue the smooth scroll for 1 second after stop
+                }, 2000); // 1-second delay after scroll stops
+            }
+        };
+
+        // Listen to the scroll event
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        // Cleanup the event listener
         return () => {
-            // Cleanup on unmount
-            window.removeEventListener("wheel", handleWheel);
+            window.removeEventListener("scroll", handleScroll);
+            clearTimeout(smoothScrollTimeout); // Clear the timeout if the component is unmounted
         };
     }, []);
 
     return (
-        <div>
+        <div style={{ height: "100vh" }}>
             {children}
         </div>
     );

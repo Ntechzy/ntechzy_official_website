@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { urlFor } from '../../../lib/sanity';
+import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
 
 const PostList = ({ data }) => {

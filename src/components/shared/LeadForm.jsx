@@ -1,5 +1,8 @@
 'use client'
 import React, { useState } from 'react';
+import validator from "validator";
+import toast from "react-hot-toast";
+import client from "@/lib/sanity";
 
 const LeadForm = () => {
     const [formData, setFormData] = useState({
@@ -16,9 +19,48 @@ const LeadForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const validateFields = () => {
+        if (validator.isEmpty(formData.name)) {
+            toast.error('Name is required');
+            return false;
+        }
+        if (!validator.isEmail(formData.email)) {
+            toast.error('Invalid email address');
+            return false;
+        }
+        if(formData.phone && !validator.isMobilePhone(formData.phone)){
+            toast.error('Invalid phone number');
+            return false;
+        }
+
+        return true;
+    }
+
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
+        try {
+            e.preventDefault();
+            // validate form fields
+            if(!validateFields()) return;
+            // submit data to sanity
+            const data = {
+                _type: 'contactResponse',
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                website: formData.website,
+                type: formData.query,
+                message: formData.message,
+            }
+            toast.promise(client.create(data), {
+                loading: 'Submitting your request...',
+                success: 'Request submitted successfully',
+                error: 'Failed to submit'
+            })
+            console.log(formData);
+        }catch (error) {
+            console.error(error);
+        }
+
     };
 
     return (
@@ -31,7 +73,7 @@ const LeadForm = () => {
                     <input
                         type="text"
                         name="name"
-                        placeholder="Name"
+                        placeholder="Name *"
                         value={formData.name}
                         onChange={handleChange}
                         className="p-3 rounded bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500"

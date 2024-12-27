@@ -1,7 +1,7 @@
 import FeaturedBlog from '@/components/Blog/FeaturedBlog'
 import PostList from '@/components/Blog/PostList'
 import React from 'react'
-import client from '../../../lib/sanity'
+import client from '@/lib/sanity'
 
 const page = async () => {
     const data = await getData() 

@@ -26,7 +26,7 @@ export const faq = [
     },
     {
         "id": 6,
-        "question": "What makes NTechZ different from others?",
+        "question": "What makes NTechzy different from others?",
         "answer": "Our blend of creativity, technology, and marketing expertise ensures that your project stands out in a competitive market."
     }
 ]

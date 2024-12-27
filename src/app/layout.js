@@ -3,6 +3,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer/footer";
 import Navbar from "@/components/navbar/Navbar";
 import {Toaster} from "react-hot-toast";
+import SoothingScroll from "@/components/shared/SoothingScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +31,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${redHatDisplay.className}  antialiased`}
       >
+      <SoothingScroll>
         <Navbar />
         {children}
         <Footer />
+      </SoothingScroll>
         <Toaster/>
       </body>
     </html>
