@@ -4,35 +4,35 @@ import DirectionAwareButton from '../shared/Button';
 
 const AboutSection2 = () => {
     const [words, setWords] = useState([]);
-    const [isInView, setIsInView] = useState(false); // Track visibility state
-    const sectionRef = useRef(null); // Reference to the section for IntersectionObserver
+    const [isInView, setIsInView] = useState(false); 
+    const sectionRef = useRef(null); 
 
-    // Define the colors
+   
     const initialColor = "text-gray-500";
     const finalColor = "text-white";
 
-    // Effect to track scroll and update words
+    
     useEffect(() => {
         const text = "As pioneers at the forefront of the industry, we're crafting innovative solutions that redefine the standard. Move faster, build smarter, scale more, code less.";
 
-        // Split the text into an array of words
+     
         setWords(text.split(" "));
 
-        // Create an IntersectionObserver to detect when the section is 20% in view
+       
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.2); // When 20% of the element is in view
+                setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.2);
             },
-            { threshold: 0.9 } // Set the threshold to 20%
+            { threshold: 0.9 } 
         );
 
-        // Start observing the section element
+       
         const element = sectionRef.current;
         if (element) {
             observer.observe(element);
         }
 
-        // Cleanup the observer on unmount
+      
         return () => {
             if (element) {
                 observer.unobserve(element);
@@ -48,7 +48,7 @@ const AboutSection2 = () => {
             <div>
                 <p className="text-start md:w-[636px] md:text-[40px]">
                     {words.map((word, index) => {
-                        // Change word color when section is in view
+                       
                         const wordColor = isInView ? finalColor : initialColor;
 
                         return (

@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const AnimatedStretchedHeading = ({ titles = [], topBarTitle, cls = "blue-polygon " }) => {
+const AnimatedStretchedHeading = ({ titles = [], topBarTitle, cls = "blue-polygon ",clss="" }) => {
   
 
     return (
@@ -15,7 +15,7 @@ const AnimatedStretchedHeading = ({ titles = [], topBarTitle, cls = "blue-polygo
             {/* Main titles */}
             <div className={"flex flex-col gap-1 items-start"}>
                 {titles.map((title, titleIndex) => (
-                    <div className={"text-[20px] md:text-[48px] text-center"} key={titleIndex}>
+                    <div className={`text-[20px] md:text-[48px] ${clss} text-center`} key={titleIndex}>
                         {title.split(" ").map((word, wordIndex) => (
                             <span key={wordIndex} className="inline-block ml-2 md:ml-4">
                                 {word.split("").map((letter, letterIndex) => (

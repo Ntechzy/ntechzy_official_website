@@ -39,7 +39,7 @@ const AboutSection4 = () => {
       
   return (
   
-    <div className=" mt-40 p-5 grid md:grid-cols-4 grid-cols-1 gap-9 ">
+    <div className=" md:mt-40 p-5 grid md:grid-cols-4 grid-cols-1 gap-9 ">
         {data.map((item,i)=>{
             return(
                 <div key={i}>
