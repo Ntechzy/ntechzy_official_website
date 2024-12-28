@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react';
-import validator from "validator";
 import toast from "react-hot-toast";
 import client from "@/lib/sanity";
+import { contactValidation } from '@/Validation/ContactValidation';
 
 const LeadForm = () => {
     const [formData, setFormData] = useState({
@@ -19,29 +19,12 @@ const LeadForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const validateFields = () => {
-        if (validator.isEmpty(formData.name)) {
-            toast.error('Name is required');
-            return false;
-        }
-        if (!validator.isEmail(formData.email)) {
-            toast.error('Invalid email address');
-            return false;
-        }
-        if(formData.phone && !validator.isMobilePhone(formData.phone)){
-            toast.error('Invalid phone number');
-            return false;
-        }
-
-        return true;
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            e.preventDefault();
-            // validate form fields
-            if(!validateFields()) return;
-            // submit data to sanity
+            // Validate the form data
+            await contactValidation.validate(formData, { abortEarly: true });
+
             const data = {
                 _type: 'contactResponse',
                 name: formData.name,
@@ -50,24 +33,31 @@ const LeadForm = () => {
                 website: formData.website,
                 type: formData.query,
                 message: formData.message,
-            }
+            };
+
+            // Submit the form and show toast notifications
             toast.promise(client.create(data), {
                 loading: 'Submitting your request...',
                 success: 'Request submitted successfully',
                 error: 'Failed to submit'
-            })
-            console.log(formData);
-        }catch (error) {
-            console.error(error);
-        }
+            });
+        } catch (error) {
+            if (error.name === 'ValidationError') {
+                toast.error(error.errors[0]);
+                console.log(error.errors);
 
+            } else {
+                toast.error("An unexpected error occurred. Please try again.");
+            }
+            console.error(error); // Log the error for debugging
+        }
     };
 
     return (
-        <div className=" flex items-center justify-center ">
+        <div className="flex items-center justify-center">
             <form
                 onSubmit={handleSubmit}
-                className="text-white p-4 md:p-8 rounded-lg shadow-lg w-full "
+                className="text-white p-4 md:p-8 rounded-lg shadow-lg w-full"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <input
@@ -85,7 +75,6 @@ const LeadForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className="p-3 rounded bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required={true}
                     />
                 </div>
 
@@ -129,9 +118,9 @@ const LeadForm = () => {
                     className="p-3 w-full mb-4 rounded bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
 
-                <p className="text-gray-400 text-[16px] font-[400] text-[#7E8695] mb-4">
+                <p className="text-[16px] font-[400] text-[#7E8695] mb-4">
                     By submitting this form I accept the{' '}
-                    <a href="#" className=" underline">Privacy Policy</a> of this site.
+                    <a href="#" className="underline">Privacy Policy</a> of this site.
                 </p>
 
                 <button

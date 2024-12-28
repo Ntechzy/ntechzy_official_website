@@ -31,11 +31,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${redHatDisplay.className}  antialiased`}
       >
-      <SoothingScroll>
+      {/* <SoothingScroll> */}
         <Navbar />
         {children}
         <Footer />
-      </SoothingScroll>
+      {/* </SoothingScroll> */}
         <Toaster/>
       <div id={"modal-root"}></div>
       </body>
