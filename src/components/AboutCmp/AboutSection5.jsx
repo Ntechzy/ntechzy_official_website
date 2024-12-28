@@ -37,7 +37,7 @@ const AboutSection5 = () => {
       <div className="grid md:grid-cols-3 grid-cols-1 md:p-5 px-5 gap-4 md:mt-[40px] mb-24 w-full  ">
       {data.map((item,i)=>{
         return(
-            <div  className="px-[24px] py-[20px] border-[#333333] border-[1px]  rounded-2xl bg-custom-gradient2" key={i}>
+            <div  className="px-[24px] py-[20px] border-[#333333] border-[1px] rounded-2xl bg-custom-gradient2" key={i}>
             <h1 className="mb-2 text-[24px] font-[700] ">{item.title}</h1>
             <p className="text-mixed">{item.desc}</p>
         </div>

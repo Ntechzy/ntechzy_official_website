@@ -9,6 +9,7 @@ import AboutSection5 from '@/components/AboutCmp/AboutSection5'
 import Team from '@/components/Team'
 import AboutSection6 from '@/components/AboutCmp/AboutSection6'
 import Testimonials from '@/components/Testimonials'
+import AboutSection7 from '@/components/AboutCmp/AboutSection7'
 
 const Page = () => {
   return (
@@ -20,6 +21,7 @@ const Page = () => {
  <Team/>
   <AboutSection5/>
   <AboutSection6/>
+  <AboutSection7/>
   <Testimonials/>
     </>
   )

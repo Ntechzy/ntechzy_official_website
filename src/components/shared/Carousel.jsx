@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { SlideData } from '@/data/slideData';
-import client, { urlFor } from '@/lib/sanity';
+import client, {urlFor}  from '@/lib/sanity';
 import Link from 'next/link';
 
 const Carousel = () => {
