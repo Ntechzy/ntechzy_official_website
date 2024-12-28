@@ -22,9 +22,7 @@ const LeadForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Validate the form data
-            await contactValidation.validate(formData, { abortEarly: true });
-
+            await contactValidation.validate(formData, { abortEarly: true })
             const data = {
                 _type: 'contactResponse',
                 name: formData.name,
@@ -35,7 +33,6 @@ const LeadForm = () => {
                 message: formData.message,
             };
 
-            // Submit the form and show toast notifications
             toast.promise(client.create(data), {
                 loading: 'Submitting your request...',
                 success: 'Request submitted successfully',
@@ -43,13 +40,10 @@ const LeadForm = () => {
             });
         } catch (error) {
             if (error.name === 'ValidationError') {
-                toast.error(error.errors[0]);
-                console.log(error.errors);
-
+                toast.error(error.message);
             } else {
                 toast.error("An unexpected error occurred. Please try again.");
             }
-            console.error(error); // Log the error for debugging
         }
     };
 
@@ -103,10 +97,10 @@ const LeadForm = () => {
                     onChange={handleChange}
                     className="p-3 mb-4 w-full rounded bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                    <option>How can we help you?</option>
-                    <option>General Inquiry</option>
-                    <option>Support</option>
-                    <option>Feedback</option>
+                    <option value="">How can we help you?</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Support">Support</option>
+                    <option value="Feedback">Feedback</option>
                 </select>
 
                 <textarea
