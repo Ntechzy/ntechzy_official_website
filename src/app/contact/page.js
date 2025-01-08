@@ -9,11 +9,11 @@ const Contact = () => {
         contactCard: [
             {
                 title: "Wanna join our teams?",
-                content: "career@ntechzy.in"
+                content: "info@ntechzy.in"
             },
             {
                 title: "Call us on",
-                content: "+91 70685951928"
+                content: "+91 8189098663"
             },
 
         ]
@@ -55,7 +55,7 @@ const Contact = () => {
                 <div className={"flex flex-col gap-5 flex-1"}>
                     <AnimatedStretchedHeading titles={["Your gateway to seamless", "communication"]} topBarTitle={"Contact Us"} />
                     <p className={"text-[16px] font-[400] leading-[1.55em] text-[#7E8695] p-4"}>
-                        Have questions, feedback, or inquiries? Fill out the form below to get in touch with us. Our team is here to assist you and will get back to you as soon as possible. Alternatively, you can reach out to us directly via phone or email. We look forward to hearing from you!
+                    We’d love to hear from you! Whether you have questions, need technical assistance, or want to discuss a partnership, our team is here to assist you. Please use the contact details or form below to get in touch with us, and we’ll respond promptly.
                     </p>
                 </div>
                 <div className={"flex-1"}>
@@ -76,7 +76,7 @@ const Contact = () => {
                     </div>
                     <div className={"flex-1"}>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.456752311331!2d80.29845457525582!3d26.47323467691193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c390bc50eb861%3A0xcb92eaeb9f752362!2sNTECHZY%20PVT.%20LTD!5e0!3m2!1sen!2sin!4v1734941097083!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.4566032495277!2d80.29845457536477!3d26.473239478838707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c390bc50eb861%3A0xcb92eaeb9f752362!2sNTECHZY%20PVT.%20LTD!5e0!3m2!1sen!2sin!4v1736332525423!5m2!1sen!2sin"
                             className={"w-[100%] h-[450px]"} style={{ border: 0 }} allowFullScreen="" loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>

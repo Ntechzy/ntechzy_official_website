@@ -11,10 +11,10 @@ const DirectionAwareButton = ({ title, color, hov_color, border = 'transprent' }
         isActive: false,
     });
 
-    const handleMouseEnter = (e) => {
+    const handleMouseEnter = (e) => { 
         const button = e.currentTarget;
 
-        if (button) {
+        if (button) {   
             const { clientX, clientY } = e;
             const { top, left, width, height } = button.getBoundingClientRect();
 
