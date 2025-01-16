@@ -17,7 +17,7 @@ const Nikhilsir = () => {
 
           </motion.h1>
           <p className="md:w-[650px] md:text-[18px] text-[14px] md:leading-[28px] text-start text-[#9da5b4]  ">
-          Mr. Nikhil Sachan, Founder and CEO of Ntechzy, and Managing Director of Careerkick Services, is a trailblazing entrepreneur with a vision to create a ₹1000 crore EdTech empire dedicated to uplifting middle-class students across India. His mission is to build a transformative educational platform that delivers quality education and the tools necessary for students to achieve their aspirations, breaking barriers and fostering success.
+          <b>Mr. Nikhil Sachan</b>, Founder and CEO of <b>Ntechzy</b>, and Managing Director of <b>Careerkick Services</b> , is a trailblazing entrepreneur with a vision to create a <b>₹1000 crore EdTech empire</b>  dedicated to uplifting middle-class students across India. His mission is to build a transformative educational platform that delivers quality education and the tools necessary for students to achieve their aspirations, breaking barriers and fostering success.
 
           </p>
         </div>
