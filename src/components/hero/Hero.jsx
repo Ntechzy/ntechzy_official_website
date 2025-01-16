@@ -7,7 +7,6 @@ import Link from "next/link";
 import { IoSparklesSharp } from "react-icons/io5";
 import DirectionAwareButton from "../shared/Button";
 import Slider from "./Slider";
-import Navbar from "../navbar/Navbar";
 
 export default function HeroSection() {
 
@@ -40,19 +39,21 @@ export default function HeroSection() {
                                 className="pt-0 pb-5 flex-col flex justify-center space-y-0"
                             >
                                 <p className="max-w-2xl text-lg text-gray-400">
-                                From designing future-ready digital solutions to 
+                                    From designing future-ready digital solutions to
                                 </p>
                                 <p className="max-w-2xl text-lg text-gray-400">
-                                crafting marketing strategies that deliver results,
+                                    crafting marketing strategies that deliver results,
                                 </p>
                                 <p className="max-w-2xl text-lg text-gray-400">
-                                we’re here to revolutionize the way you grow.
+                                    we’re here to revolutionize the way you grow.
                                 </p>
                             </TextFade>
 
                             <div className="flex md:flex-row flex-col w-full md:items-center  justify-between ">
                                 <div className="flex md:flex-row flex-col  md:items-center gap-6">
-                                    <DirectionAwareButton title={'Enquire Now'} color={"bg-black"} hov_color={"bg-secondary"} border="border-2 " />
+                                    <Link href={"/contact"}>
+                                        <DirectionAwareButton title={'Enquire Now'} color={"bg-black"} hov_color={"bg-secondary"} border="border-2 " />
+                                    </Link>
                                     <div className="flex md:items-center gap-2">
                                         <IoSparklesSharp className="h-5 w-5 text-blue-500" />
                                         <span className="text-sm font-bold ">12 business reaching today</span>
@@ -108,7 +109,7 @@ export default function HeroSection() {
                         <div className="space-y-6 ">
                             <div className="md:space-y-2">
                                 <div className="flex md:items-center items-baseline gap-1">
-                                    <Counter value={16} />
+                                    <Counter value={3} />
                                     <span className="text-[20px] md:text-[48px] font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Years of Experiences</p>
@@ -116,7 +117,7 @@ export default function HeroSection() {
 
                             <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
-                                    <Counter value={12000} />
+                                    <Counter value={100} />
                                     <span className="text-[20px] md:text-[48px] font-bold text-blue-500">+</span>
                                 </div>
                                 <p className="text-gray-400">Projects completed from all over the world</p>
@@ -124,14 +125,16 @@ export default function HeroSection() {
 
                             <div className="md:space-y-2">
                                 <div className="flex items-baseline gap-1">
-                                    <Counter value={196} />
+                                    <Counter value={20} />
                                     <span className="text-[20px] md:text-[48px] font-bold text-blue-500">+</span>
                                 </div>
-                                <p className="text-gray-400">Awards achieved from different sites</p>
+                                <p className="text-gray-400">Industries we've provided solutions for</p>
                             </div>
                         </div>
                         {/* < div className="w-fit px-8 py-2 border-2 rounded-lg hover: flex items-center gap-x-2 justify-center text-white"> */}
-                        <DirectionAwareButton title={'About us'} color={"bg-transprent"} border={"border-2 border-white"} hov_color={"bg-secondary"} />
+                        <Link href={'/about'} className='mb-4'>
+                            <DirectionAwareButton title={'About us'} color={"bg-transprent"} border={"border-2 border-white"} hov_color={"bg-secondary"} />
+                        </Link>
                         {/* </div> */}
                     </div>
                 </div>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 const GooeyCards = ({ id, direction, position, setCardPositions, initialDirection,image }) => {
-    const handleMouseMove = (e) => {
-        // Get the cursor position relative to the card
+    const handleMouseMove = (e) => { 
         const cardRect = e.target.getBoundingClientRect();
         const cursorX = e.clientX - cardRect.left;
         const cursorY = e.clientY - cardRect.top;
@@ -24,7 +23,7 @@ const GooeyCards = ({ id, direction, position, setCardPositions, initialDirectio
         setCardPositions((prevState) =>
             prevState.map((card) =>
                 card.id === id
-                    ? { ...card, direction: initialDirection } // Reset the direction
+                    ? { ...card, direction: initialDirection } 
                     : card
             )
         );

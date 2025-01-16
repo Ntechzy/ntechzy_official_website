@@ -11,7 +11,7 @@ import ReactDOM from "react-dom";
 const JobOpenings = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentJob, setCurrentJob] = useState(null);
-    const [currentStep, setCurrentStep] = useState(1); // Step 1: Job Details, Step 2: Application Form
+    const [currentStep, setCurrentStep] = useState(1); 
     const [jobOpenings , setAllJobOpenings] = useState([]);
     const [loading , setLoading] = useState(false);
     const [modalData , setModalData] = useState({name: "", email: "", phone: "", resume: "", coverLetter: ""});
@@ -46,27 +46,23 @@ const JobOpenings = () => {
     useEffect(() => {
         fetchJobs();
     },[])
-
-    // Open modal and set the current job
+ 
     const handleOpenModal = (job) => {
         setCurrentJob(job);
         setIsModalOpen(true);
-        setCurrentStep(1); // Reset to step 1 when opening the modal
+        setCurrentStep(1); 
     };
-
-    // Close modal
+ 
     const handleCloseModal = () => {
         setIsModalOpen(false);
         setCurrentJob(null);
         setCurrentStep(1);
     };
-
-    // Move to the next step (from job details to form)
+ 
     const handleNextStep = () => {
         setCurrentStep(2);
     };
-
-    // function to check validation for all the fields
+ 
     const validateFields = () => {
         if(!validator.isEmail(modalData.email)){
             toast.error("Invalid email address");
@@ -168,10 +164,9 @@ const JobOpenings = () => {
                     >
                         <div
                             className="bg-white rounded-lg p-6 w-11/12 sm:w-3/4 md:w-1/2"
-                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                            onClick={(e) => e.stopPropagation()}  
                         >
-                            {currentStep === 1 ? (
-                                // Step 1: Job Details
+                            {currentStep === 1 ? ( 
                                 <div>
                                     <h3 className="text-2xl font-semibold text-gray-800 mb-4">
                                         {currentJob?.title}
@@ -185,8 +180,7 @@ const JobOpenings = () => {
                                         Next
                                     </button>
                                 </div>
-                            ) : (
-                                // Step 2: Application Form
+                            ) : ( 
                                 <div>
                                     <h3 className="text-2xl font-semibold text-gray-800 mb-4">
                                         Apply for {currentJob?.title}
@@ -245,8 +239,7 @@ const JobOpenings = () => {
                                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                                                 placeholder="Upload Your resume"
                                                 accept={".pdf,.doc,.docx"}
-                                                required={true}
-                                                // value={modalData.resume}
+                                                required={true} 
                                                 onChange={(e) => setModalData((prev) => ({
                                                     ...prev,
                                                     [e.target.name]: e.target.files[0]

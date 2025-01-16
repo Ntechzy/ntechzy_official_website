@@ -68,17 +68,17 @@ const ProjectTabs = () => {
                                 </div>
                             </div>
                             <div className="">
-                                <h3 className="text-[16px] text-gray-500 uppercase mt-[25px] font-semibold  leading-[1.33]">{obj.name}</h3>
-                                <h2 className="text-[12px] sm:text-[16px] md:text-[24px] font-semibold mt-[8px] leading-[1.33] hover:text-secondary transition-all ease-in-out duration-500 ">
+                                <h3 className="text-[16px]  uppercase mt-[25px] font-semibold hover:text-secondary leading-[1.33]">{obj.name}</h3>
+                                {obj.description && < h2 className="text-[12px] sm:text-[16px] font-semibold mt-[8px] leading-[1.33] text-gray-500 transition-all ease-in-out duration-500 ">
                                     {obj.description}
-                                </h2>
+                                </h2>}
                             </div>
                         </div>
                     )) :
                         "Will Soon Update"
                 }
             </div>
-        </div>
+        </div >
     )
 }
 

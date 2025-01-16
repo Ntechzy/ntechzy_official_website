@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { LuSparkle } from "react-icons/lu";
 import AnimatedStretchedHeading from './shared/AnimatedStretchedHeading';
 import DirectionAwareButton from './shared/Button';
+import Link from "next/link";
 
 const ChooseUs = () => {
     const listContainer = {
@@ -57,10 +58,10 @@ const ChooseUs = () => {
                         </motion.li>
                     ))}
                 </motion.ul>
-                <div className="md:mx-[22px]">
+                <Link href="/about" className="md:mx-[22px]">
                     <DirectionAwareButton title={'See our workflow'} color={"bg-secondary"} hov_color={"bg-black"} />
 
-                </div>
+                </Link >
             </div>
         </div>
     );

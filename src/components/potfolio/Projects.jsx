@@ -1,5 +1,3 @@
-import React from 'react'
-import AnimatedStretchedHeading from '../shared/AnimatedStretchedHeading'
 import ProjectTabs from './ProjectTabs'
 
 const Projects = () => {
@@ -12,7 +10,7 @@ const Projects = () => {
                 <h1 className='text-[64px] font-[600] leading-tight'>
                     Our Projects
                 </h1>
-            </div>
+            </div> 
 
             <div>
                 <ProjectTabs />

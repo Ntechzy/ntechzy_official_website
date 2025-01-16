@@ -1,9 +1,8 @@
 "use client"
-import AnimatedHeading from "@/components/shared/AnimatedHeading";
 import AnimatedStretchedHeading from "@/components/shared/AnimatedStretchedHeading";
 import { testimonials } from "@/data/Testimonials";
-import { motion } from "motion/react"
-import { useState } from 'react'
+import { motion } from "motion/react";
+import { useState } from 'react';
 
 const TestimonialsCard = ({ direction = "top", isCardHovered, testmonial }) => {
 
@@ -13,8 +12,7 @@ const TestimonialsCard = ({ direction = "top", isCardHovered, testmonial }) => {
         },
         hovered: {
             y: 0,
-        },
-        // Animation in motion (not hovered)
+        }, 
         animate: {
             y: direction === "top" ? ["0%", "-100%"] : ["-100%", "0%"],
             transition: {
@@ -35,8 +33,7 @@ const TestimonialsCard = ({ direction = "top", isCardHovered, testmonial }) => {
                 <p>
                     {testmonial.testimonial}
                 </p>
-            </div>
-            {/*profile*/}
+            </div> 
             <div className={"flex justify-between"}>
                 <div>
                     <p className="text-[12px] md:text-[14px] font-bold text-gray-500">{testmonial.designation}, {testmonial.organization}</p>
@@ -57,15 +54,14 @@ const Testimonials = () => {
     return (
         <div>
             <div className={"bg-white rounded-lg text-black gap-8 md:gap-0 h-[637px] mt-[160px] flex flex-col md:flex-row overflow-hidden"}>
-                {/*left*/}
+        
                 <div className={"flex flex-col h-full justify-between flex-1 p-4 gap-8 md:gap-0 md:p-10"}>
                     <AnimatedStretchedHeading topBarTitle={"Testimonial"} titles={["Let actions", "talking instead"]} />
                     <div className={"md:p-5 p-2 border border-[#BBC1CE] rounded-2xl flex gap-2 w-full md:w-fit"}>
-                        {/*image*/}
+                      
                         <div className={"w-10 h-10 rounded-full bg-gray-200"}>
 
-                        </div>
-                        {/*rating*/}
+                        </div> 
                         <div>
                             <div className={"flex md:gap-2"}>
                                 <p className={"font-bold"}>4.9/5</p>
@@ -74,8 +70,7 @@ const Testimonials = () => {
                             <p className={"text-gray-500"}>Based on 50+ reviews</p>
                         </div>
                     </div>
-                </div>
-                {/*right*/}
+                </div> 
                 <div className={"flex-1 flex flex-col md:flex-row gap-4 px-3 md:px-10"}>
                     <motion.div
                         className={"flex flex-col overflow-hidden gap-4"}

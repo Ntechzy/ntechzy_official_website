@@ -36,8 +36,7 @@ const FAQCard = ({ item }) => {
                 transition: 'all 1s',
                 transform: 'translateY(-4rem)',
             }}
-            onClick={handleClick}>
-            {/*background image*/}
+            onClick={handleClick}> 
             <div
                 className={" rounded-[inherit] absolute inset-0 before:absolute before:rounded-[inherit] before:bg-[#1F2025] before:inset-0 before:bg-clip-content before:border before:border-transparent z-[-1]"}
                 style={{ backgroundImage: "linear-gradient(357deg, rgba( 117, 117, 117, 0.40) 0%, rgba( 255, 255, 255, 0.00) 70%)" }}></div>

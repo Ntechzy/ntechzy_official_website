@@ -6,12 +6,21 @@ import { FaBars } from 'react-icons/fa6';
 import { LiaTimesSolid } from 'react-icons/lia';
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import useScrollPosition from '@/hooks/useScrollPosition';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [activeSubmenu, setActiveSubmenu] = useState(null);
     const [selected, setSelected] = useState('Home')
     const scrollPosition = useScrollPosition()
+    const path = usePathname()
+
+    useEffect(() => {
+        console.log(path);
+
+        setSelected(path)
+    }, [path])
+
 
     // Handle body scroll when menu is open
     useEffect(() => {
@@ -39,7 +48,7 @@ const Navbar = () => {
         },
         {
             name: "Team", href: "/team"
-        }, 
+        },
         { name: "Contact", href: "/contact" },
     ];
 
@@ -95,7 +104,7 @@ const Navbar = () => {
                                         onClick={() => setSelected(item.name)}
                                         className="text-white hover:text-blue-500 transition-colors"
                                     >
-                                        {item.name === selected && <span className='blue-polygon mr-1' />} {item.name}
+                                        {item.href === selected && <span className='blue-polygon mr-1' />} {item.name}
                                     </Link>
                                 )}
                             </li>
@@ -104,7 +113,7 @@ const Navbar = () => {
                 </div>
 
                 <Link
-                    href="#"
+                    href="/contact"
                     className="hidden lg:block px-6 py-2 bg-white text-primary rounded-lg hover:bg-secondary hover:text-white transition-colors"
                 >
                     Get Started
