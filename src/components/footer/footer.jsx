@@ -17,6 +17,9 @@ export function Footer() {
   const [errors, setErrors] = useState({})
 
   const handleSubmit = (e) => {
+
+    // Req:- pankaj upadate over here 
+
     e.preventDefault()
     const newErrors = {}
 
@@ -28,8 +31,7 @@ export function Footer() {
     setErrors(newErrors)
 
     if (Object.keys(newErrors).length === 0) {
-      // Handle form submission
-      console.log('Form submitted:', formData)
+      // Handle form submission 
     }
   }
 
@@ -125,17 +127,17 @@ export function Footer() {
                 <h3 className="mb-4 text-lg font-semibold">Services</h3>
                 <ul className="space-y-3 text-gray-400">
                   <li><Link href="#" className="hover:text-white">It Consultations</Link></li>
-                  <li><Link href="#" className="hover:text-white">Data Security</Link></li>
-                  <li><Link href="#" className="hover:text-white">Blockchain</Link></li>
-                  <li><Link href="#" className="hover:text-white">AI Chatbot</Link></li>
-                  <li><Link href="#" className="hover:text-white">Game Development</Link></li>
-                  <li><Link href="#" className="hover:text-white">Virtual Reality</Link></li>
+                  <li><Link href="#" className="hover:text-white">Web Development</Link></li>
+                  <li><Link href="#" className="hover:text-white">Digital Marketing </Link></li>
+                  <li><Link href="#" className="hover:text-white">App Development</Link></li>
+                  <li><Link href="#" className="hover:text-white">Custom Solution</Link></li>
+                  <li><Link href="#" className="hover:text-white">SEO & SEM</Link></li>
                 </ul>
               </div>
             </div>
 
             <div className="space-y-6">
-            <div>
+              <div>
                 <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
                 <ul className="space-y-3 text-gray-400">
                   {quickLinks.map((item, index) => (
@@ -150,16 +152,16 @@ export function Footer() {
                 <h3 className="mb-4 text-lg font-semibold">Contact</h3>
                 <div className="space-y-3 text-gray-400">
                   <p className="font-medium text-white">Address</p>
-                  <p>58 Howard, San Francisco CA 411</p>
-                  
+                  <p>Gf - 31 , sng plaza ansal golf near by pari chowk greater Noida</p>
+
                   <p className="font-medium text-white">Support Email</p>
-                  <p>contact@Tecko.co</p>
-                  
+                  <p>cto@ntechzy.in</p>
+
                   <p className="font-medium text-white">Phone Number</p>
-                  <p>fax@Tecko.co</p>
+                  <p>+91 8189098663</p>
 
                   <p className="font-medium text-white">Work Hour</p>
-                  <p>Mon - Sat: 9:00 - 18:00</p>
+                  <p>Mon - Sat: 9:00 - 06:00</p>
                 </div>
               </div>
             </div>
@@ -168,9 +170,20 @@ export function Footer() {
 
         {/* Logo */}
         <div className="mt-12 flex justify-end">
-          <Link href="/" className="flex items-center space-x-2 pr-12">
-            <img src="/logo.png" alt="" />
+
+          <Link href="/" className=" flex items-center gap-2 space-x-2 pr-12">
+            <div className='flex items-center gap-4 relative z-50 bg-white h-10 w-10 rounded-full'>
+              <img
+                src="/favicon.png"
+                alt="Company Logo"
+                className="h-[80%] w-[80%] flex items-center justify-center m-auto bg-red-500 rounded-full"
+              />
+            </div>
+            <h1 className=' text-[20px] font-extrabold'>
+              Ntechzy
+            </h1>
           </Link>
+
         </div>
 
         {/* Bottom Bar */}

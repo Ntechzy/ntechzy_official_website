@@ -56,12 +56,18 @@ const Navbar = () => {
         <>
             <nav className={`h-24 px-6 flex items-center justify-between transition-all duration-500 ${scrollPosition > 500 ? "bg-[#292b2d] shadow-lg fixed top-0 left-0 right-0 z-40" : "bg-transparent"}`}>
                 {/* Logo */}
-                <Link href="/" className="relative z-50">
-                    <img
-                        src="/logo.png"
-                        alt="Company Logo"
-                        className="h-12 w-auto"
-                    />
+
+                <Link href="/" className=" flex items-center gap-2">
+                    <div className='flex items-center gap-4 relative z-50 bg-white h-10 w-10 rounded-full'>
+                        <img
+                            src="/favicon.png"
+                            alt="Company Logo"
+                            className="h-[80%] w-[80%] flex items-center justify-center m-auto bg-red-500 rounded-full"
+                        />
+                    </div>
+                    <h1 className=' text-[20px] font-extrabold'>
+                        Ntechzy
+                    </h1>
                 </Link>
 
                 {/* Mobile Menu Button */}

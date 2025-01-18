@@ -16,7 +16,21 @@ export const all = [
         name: "Arnav ayurvedic College and cns hospital barabanki",
         image: "/client/arnav.png",
         link: "https://www.arnavayurvedicmedicalcollege.com/"
-    }
+    },
+    {
+        id: 4,
+        name: "Lead Management System",
+        image: "/client/lmsphoto.jpg",
+        description: "We developed a Lead Management System for CareerKick to streamline lead tracking, automate assignments, and enable real-time updates. With customizable workflows and detailed analytics, it improves efficiency, enhances engagement, and boosts counseling success.",
+        link: "/"
+    },
+    {
+        id: 5,
+        name: "EMS ",
+        image: "/client/ems.webp",
+        description: "We developed an Employee Management System for CareerKick to streamline HR processes, track employee data, and automate key workflows. With features like real-time performance tracking, attendance management, and customizable reporting, it enhances operational efficiency, improves employee engagement, and supports data-driven decision-making.",
+        link: "/"
+    },
 
 ]
 export const web = [

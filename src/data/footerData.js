@@ -1,7 +1,7 @@
 export const socialMediaLinks = [
     {
         name: "Instagram",
-        path: 'https://www.instagram.com/ntechzy/?hl=en'
+        path: 'https://www.instagram.com/ntechzy.in/'
     },
     {
         name: "LinkedIn",
@@ -32,18 +32,18 @@ export const policy = [
 export const quickLinks = [
     {
         name: "About Us",
-        path: '#'
+        path: '/about'
     },
     {
         name: "Our Team",
-        path: '#'
+        path: '/team'
     },
     {
         name: "Career@Ntechzy",
-        path: '#'
+        path: '/team'
     },
     {
         name: "Contact Us",
-        path: '#'
+        path: '/contact'
     },
 ]

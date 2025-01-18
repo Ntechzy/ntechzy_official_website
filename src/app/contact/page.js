@@ -55,7 +55,7 @@ const Contact = () => {
                 <div className={"flex flex-col gap-5 flex-1"}>
                     <AnimatedStretchedHeading titles={["Your gateway to seamless", "communication"]} topBarTitle={"Contact Us"} />
                     <p className={"text-[16px] font-[400] leading-[1.55em] text-[#7E8695] p-4"}>
-                    We’d love to hear from you! Whether you have questions, need technical assistance, or want to discuss a partnership, our team is here to assist you. Please use the contact details or form below to get in touch with us, and we’ll respond promptly.
+                        We’d love to hear from you! Whether you have questions, need technical assistance, or want to discuss a partnership, our team is here to assist you. Please use the contact details or form below to get in touch with us, and we’ll respond promptly.
                     </p>
                 </div>
                 <div className={"flex-1"}>
