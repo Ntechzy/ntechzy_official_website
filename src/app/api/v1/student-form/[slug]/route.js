@@ -11,7 +11,9 @@ export async function GET(req, { params }) {
                 status: 200,
                 headers: {
                     'Content-Type': 'application/javascript',
-                    'Cache-Control': 'public, max-age=31536000'
+                    'Cache-Control': 'public, max-age=31536000',
+                      'Access-Control-Allow-Origin': '*', 
+                    'Access-Control-Allow-Methods': 'GET, OPTIONS', 
                 },
             });
         } catch (error) {
