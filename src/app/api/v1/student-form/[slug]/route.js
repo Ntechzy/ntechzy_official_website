@@ -12,7 +12,7 @@ export async function GET(req, { params }) {
                 headers: {
                     'Content-Type': 'application/javascript',
                     'Cache-Control': 'public, max-age=31536000',
-                      'Access-Control-Allow-Origin': '*', 
+                      'Access-Control-Allow-Origin': 'https://naiminath-ayurveda.vercel.app', 
                     'Access-Control-Allow-Methods': 'GET, OPTIONS', 
                 },
             });
