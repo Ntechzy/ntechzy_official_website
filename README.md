@@ -9,3 +9,7 @@ https://demo.7iquid.com/tecko/portfolio-grid/
 ### framer motion component 
 
 https://motion.dev/docs/react-quick-start
+
+
+
+here is some other detail 
