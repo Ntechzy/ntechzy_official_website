@@ -41,7 +41,7 @@ const SmoothScrollFramerMotion = ({ children }) => {
     return (
         <motion.div
             animate={controls}
-            initial={{ y: 0 }}
+            initial={{ y: 0,x:24}}
             style={{ height: "100vh"}}
         >
             {children}
