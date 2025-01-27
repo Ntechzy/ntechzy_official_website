@@ -1,9 +1,6 @@
 {
   "redirects": [
-    {
-      "source": "/api/v1/student-form/form.js",
-      "destination": "/api/v1/student-form/form.js",
-      "permanent": false
+    { 
     }
   ],
   "headers": [
