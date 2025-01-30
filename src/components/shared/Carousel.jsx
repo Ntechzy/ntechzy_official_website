@@ -17,7 +17,7 @@ const Carousel = () => {
               title, 
               mainImage,
               short_description,
-              categories,
+              "categories": categories[]->title,
               publishedAt
             }`;
 

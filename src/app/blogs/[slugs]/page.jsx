@@ -10,7 +10,7 @@ const fetchData = async (id) => {
                         title, 
                         mainImage,
                         short_description,
-                        categories,
+                        "categories": categories[]->title,
                         body,
                         publishedAt
                     }[0]`
@@ -22,7 +22,7 @@ const page = async ({ params }) => {
     const id = await params
     const data = await fetchData(id.slugs)
     const value = data.body
-
+    console.log(data)
 
 
     return (
@@ -30,21 +30,21 @@ const page = async ({ params }) => {
             <div className='mx-4'>
                 <div className='text-[#7A7A7A] max-w-[860px] m-auto flex flex-col'>
                     <h5>
-                        Posted by {data.author || "Admin"}
+                        Posted by {data?.author || "Admin"}
                     </h5>
                     <h5>
                         in <span className='text-secondary'>
-                            {data.categories || "Technology"}
+                            {data?.categories?.join(" ") || "Technology"}
                         </span>
                     </h5>
                     <h2 className='text-[24px] md:text-[36px] mt-[25px] font-[600] text-white'>
-                        {data.title}
+                        {data?.title}
                     </h2>
                 </div>
 
                 <div className='mt-[50px]'>
                     <div className='h-auto bg-white rounded-xl overflow-hidden md:h-[100vh] w-full'>
-                        <img className='h-full w-full object-cover' src={urlFor(data.mainImage).url()} alt="" />
+                        <img className='h-full w-full object-cover' src={urlFor(data?.mainImage)?.url()} alt="" />
                     </div>
 
                     <div className=''>
